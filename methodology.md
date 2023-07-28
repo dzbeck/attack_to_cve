@@ -8,66 +8,66 @@
 Once the attacker has access to the valid account, there are too many paths they can take to list them all.  
 
 When developing this methodology, we found that three steps in the attack is usually as far in the process as can be reasonably described.  We categorize these steps in the following way:
-1. **Exploitation Technique** - the method used to exploit the vulnerability (T1040 in the example).
-2. **Primary Impact** - the initial benefit gained through exploitation of a vulnerability (T1552 in the example).
+1. **Exploitation Method** - the method used to exploit the vulnerability (T1040 in the example).
+2. **Primary Impact** - the initial benefit (impact) gained through exploitation of the vulnerability (T1552 in the example).
 3. **Secondary Impact** - what the adversary can do by gaining the benefit of the primary impact (T1078 in the example).
 
 Using these three categories, you can create a vulnerability impact description template such as:
 
-> The vulnerability allows the attacker to use **[EXPLOITATION TECHNIQUE]** to gain **[Primary Impact]**, which leads to **[Secondary Impact]**.
+> The vulnerability allows the attacker to use **[EXPLOITATION METHOD]** to gain **[Primary Impact]**, which leads to **[Secondary Impact]**.
 
 ![/cve-to-attack-sentence.png](/cve-to-attack-sentence.png)
 
-ATT&CK will not always contain a technique for each of the categories. ATT&CK is written at a higher level of abstraction than is often used to describe a vulnerability and ATT&CK requires examples where the technique has been used in real-world attacks.  For example, the primary impact of a vulnerability may be too low-level to include an ATT&CK technique.  In which case, you can use the secondary impact in place of the primary or use one of the [tactic-level techniques](methodology.md#tactic-level-techniques).
+ATT&CK will not always contain a technique for each of the categories. ATT&CK is written at a higher level of abstraction than is often used to describe a vulnerability and ATT&CK requires examples where the technique has been used in real-world attacks. When the primary impact of a vulnerability is too low-level to map to an ATT&CK technique, a higher level, an [ATT&CK Tactic](methodology.md#higher-level-tactics) or secondary impact may be used instead.
 
 ##	Using the Methodology
-We defined three methods to map ATT&CK techniques to vulnerabilities:
+We defined three methods that may be used in combination to map vulnerabilities to ATT&CK techniques:
 
 -	[**Vulnerability Type**](methodology.md#vulnerability-type-mappings) – This method groups vulnerabilities with common vulnerability types (e.g., cross-site scripting and SQL injection) that have common technique mappings.
--	[**Functionality**](methodology.md#functionality) - This method groups common mappings based on the type of functionality the attacker gains access to by exploiting the vulnerability.
--	[**Exploit Technique**](methodology.md#exploitation-techniques) – This method groups common mappings depending on the method used to exploit the vulnerability.
+-	[**Functionality Type**](methodology.md#functionality) - This method groups common mappings based on the type of functionality the attacker gains access to by exploiting the vulnerability.
+-	[**Exploit Type**](methodology.md#exploitation-techniques) – This method groups common mappings depending on the method used to exploit the vulnerability.
 
-Only the vulnerability type method has mappings for all three categories.  The functionality method has mappings for primary and secondary impacts. The exploit techniques method only has mappings for the exploitation technique categories.
+Only the vulnerability type method has mappings for all three categories.  The functionality type method has mappings for primary and secondary impacts. The exploit type method only has mappings for the exploitation technique categories.
 
 #### Vulnerability Type Method
 
-Vulnerabilities that have the same type often also have the same attack steps.  This method maps ATT&CK techniques to some of the more common vulnerability types.  [CWE-699 (Software Development)](https://cwe.mitre.org/data/definitions/699.html) and [CWE-1000 (Research Concepts)](https://cwe.mitre.org/data/definitions/1000.html) were used to select the vulnerability types, though the method sometimes creates its own high-level categories for the sake of brevity.
+Vulnerabilities that have the same type often also have the same attack steps.  This method maps ATT&CK techniques to some of the more common vulnerability types.  [CWE-699 (Software Development)](https://cwe.mitre.org/data/definitions/699.html) and [CWE-1000 (Research Concepts)](https://cwe.mitre.org/data/definitions/1000.html) were used to select the vulnerability types, though the method may include additional high-level categories for the sake of brevity.
 
 The vulnerability type mappings can include the following technique categories:
-1. Exploitation Technique
+1. Exploitation Method
 2. Primary Impact
 3. Secondary Impact
 
 If one of these categories is not included in the mapping for a particular vulnerability type, use one of the other methods to find the appropriate techniques.
 
-#### Functionality Method
+#### Functionality Type Method
 
-For a vulnerability to be useful, it needs to provide the attacker with a capability they did not have before.  Attackers are often trying to gain access to the same functionality and thus, many vulnerabilities can be grouped by functionality.
+For a vulnerability to be useful, it needs to provide the attacker with a capability they did not have before.  Attackers often try to gain access to the same functionality, so vulnerabilities can often be grouped by functionality.
 
-This method includes the following technique categories:
+The functionality type method includes the following technique categories:
 1. Primary Impact
 2. Secondary Impact
 
-To find the exploitation technique for a vulnerability, use one of the other two mapping methods in this document.
+To find the exploitation technique for a vulnerability, use one of the other two mapping methods.
 
-#### Exploit Technique Method
+#### Exploit Type Method
 
-This method groups techniques by the common steps taken to exploit a vulnerability.  Use this method when a vulnerability type has too many possible exploitation scenarios to list in the Vulnerability Type method.
+This method groups techniques by the common steps taken to exploit a vulnerability.  Use this method when a vulnerability has too many possible exploitation scenarios to list in the Vulnerability Type method.
 
-This method includes the following technique categories:
-1. Exploitation Technique
+The exploit type method includes the following technique category:
+1. Exploitation Method
 
-To find the exploit technique for a vulnerability, use one of the other two mapping methods in this document.
+To find the impact techniques for a vulnerability, use one of the other two mapping methods.
 
 ### Mapping & Methodology Scope
 
-In each method there are cases where we have not included a mapping for all available categories (Exploitation Technique, Primary Impact, Secondary Impact). Technique mappings are only included for a category when it is likely that different vulnerabilities in the group share that technique.  For example, vulnerabilities that modify memory (e.g., buffer overflows) share a common primary impact, but the secondary impacts and exploitation techniques are so varied that the methodology does not include a mapping for those categories.  
+In each method there are cases where we have not included a mapping for all categories (Exploitation Method, Primary Impact, Secondary Impact). Technique mappings are only included for a category when it is likely that different vulnerabilities in the group share that technique.  For example, vulnerabilities that modify memory (e.g., buffer overflows) share a common primary impact, but the secondary impacts and exploitation techniques are so varied that the methodology does not include a mapping for those categories.  
 
 ![/cve-to-attack-no-secondary-impact.png](/cve-to-attack-no-secondary-impact.png)
 
 Some groupings will have more than one technique listed for a mapping category because there are common variations within that grouping.  In these cases, select only the techniques that apply to the vulnerability.  For example, the cross-site scripting (XSS) vulnerability type includes an option of [T1189](https://attack.mitre.org/techniques/T1189) (Drive-by Compromise) or [T1204.001](https://attack.mitre.org/techniques/T1204/001) (User Execution: Malicious Link) depending on whether the attacked is stored or not.
 
-This methodology establishes a starting point for vulnerability reporters and researchers to standardize the way they describe some vulnerability data. The methodology does not cover all the ways that systems are exploited.
+This methodology establishes a starting point for vulnerability reporters and researchers to standardize the way they describe vulnerability data. The methodology does not cover all the ways that systems are vulnerable.
 
 ### Example
 
@@ -75,13 +75,13 @@ This methodology establishes a starting point for vulnerability reporters and re
 
 > Yokogawa STARDOM Controllers FCJ, FCN-100, FCN-RTU, FCN-500, All versions R4.10 and prior, The web application improperly protects credentials which could allow an attacker to obtain credentials for remote access to controllers.
 
-To find the appropriate ATT&CK techniques, start by identifying the vulnerability type.  For CVE-2018-17900, the vulnerability is a credential management issue.  Looking through the list of vulnerability types in the methodology, the "General Credential Management Errors" vulnerability type appears to be the most appropriate.  Using one of the lower-level credential management vulnerability types is preferable but the CVE record does not provide the level of detail need to do so.  
+To find the appropriate ATT&CK techniques, start by identifying the vulnerability type.  For CVE-2018-17900, the vulnerability is a credential management issue.  Looking through the list of vulnerability types in the methodology, the "General Credential Management Errors" vulnerability type appears to be the most appropriate.  Using one of the lower-level credential management vulnerability types is preferable but the CVE record does not provide the level of detail needed to do so.  
 
 The ”General Credential Management Errors” vulnerability type maps to [T1552](https://attack.mitre.org/techniques/T1552) (Unsecured Credentials) for the primary impact and [T1078](https://attack.mitre.org/techniques/T1078) (Valid Accounts) for the secondary impact.  These mappings follow the description in the CVE record.  “improperly protects credentials which could allow an attacker to obtain credentials” matches T1552 and “for remote access to controllers” matches T1078.
 
 The ”General Credential Management Errors” vulnerability type does not have a mapping for the exploitation technique because there are too many ways general credential management vulnerabilities can be exploited.  To find the exploitation technique for CVE-2018-17900, use the Exploit Technique section.  The Exploit Technique section documents a set of scenarios to help the user determine which exploitation technique(s) are appropriate for the vulnerability.  For CVE-2018-17900, the entry point is the web application so the “Attacker exploits remote system application” scenario applies, which makes [T1190](https://attack.mitre.org/techniques/T1190) (Exploit Public-Facing Application) the exploitation technique for the vulnerability.
 
-The description for CVE-2018-17900 can now be re-written using the ATT&CK standard.
+The description for CVE-2018-17900 can now be re-written using ATT&CK techniques.
 
 ![/cve-2018-17900-mapping-example.png](/cve-2018-17900-mapping-example.png)
 
@@ -168,14 +168,14 @@ Start by asking, "what steps are necessary to exploit this vulnerability?"
 - If the target uses hardcoded credentials: [T1078](https://attack.mitre.org/techniques/T1078) (Valid Accounts)
 - If the attacker "sniffs" unencrypted network traffic: [T1040](https://attack.mitre.org/techniques/T1040) (Network Sniffing)
 
-# Tactic-level Techniques
+# Higher-level Tactics
 
 When the three methods above (Vulnerability Type, Functionality, and Exploit Technique) don't support mapping the exploit type or impacts of a vulnerability, consider focusing at a higher level in ATT&CK. For many tactics within ATT&CK, there is a generic exploitation technique.  When mapping techniques to vulnerabilities, exploitation can be assumed so these techniques are not as useful in this context than for other uses of ATT&CK.  In this document, where possible, a more specific technique is used over the generic exploitation techniques. 
 
 | Tactic | Generic Exploitation Technique |
 | ---- | ---- |
 | Initial Access | T1190 (Exploit Public-Facing Application) |
-| Execution | T1203 (Exploitation of Client Execution) |
+| Execution | T1203 (Exploitation for Client Execution) |
 | Privilege Escalation | T1068 (Exploitation for Privilege Escalation) |
 | Defense Evasion | T1211 (Exploitation for Defense Evasion) |
 | Credential Access | T1212 (Exploitation for Credential Access) |
