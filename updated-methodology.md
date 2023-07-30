@@ -26,27 +26,27 @@ Mapping vulnerabilities to ATT&CK techniques (identifying exploit method and imp
 
 - **Consider Common Vulnerability Types** - vulnerabilities based on the same weakness (e.g., CWE-79: cross-site scripting) will often have the same ATT&CK mapping. The [Common Vulnerability Types](#common-vulnerability-types) section includes a list of common vulnerability types that provides a VID for many vulnerabilities. 
 - **Consider Standard Exploit Methods** - Vulnerabilities of the same type can often be exploited in many different ways. However, specifics of a vulnerability can lead to identification of a specific exploit method. The [Standard Exploit Methods](#standard-exploit-methods) section includes a collection of exploit methods based the type of vulnerable object and the attack entry point. 
-- **Identify Techniques Using Keywords** - While many vulnerabilities can be mapped to ATT&CK using the common vulnerability table, there are many more that require a once-off, custom mapping. In these cases, keywords in the vulnerability's description can be used to identify the ATT&CK techniques associated with the exploit method and impact components of a VID. Details are given in the [Keyword-based Mapping](new-methodology.md#keyword-based-mapping) section.
+- **Identify Techniques Using Keywords** - While many vulnerabilities can be mapped to ATT&CK using the common vulnerability table, there are many more that require a once-off, custom mapping. In these cases, keywords in the vulnerability's description can be used to identify the ATT&CK techniques associated with the exploit method and impact components of a VID. Details are given in the [Keyword-based Mapping](#keyword-based-mapping) section.
 
 Example mappings, [Background Notes](#background-notes) and [References](#references) are also included below.
 
 ### Common Vulnerability Types
 
-Vulnerabilities of the same type will often have the same or similar technique mappings. [Table 1](new-methodology.md#table-1:-common-vulnerability-types) lists the most common vulnerability types based on CWE, which are taken from [[1]](#1) (see the *Top 25 most dangerous CWE codes as reflected in CVEs 2018-2022* graphic) and XXXX. 
+Vulnerabilities of the same type will often have the same or similar technique mappings. **Table 1** lists the most common vulnerability types based on CWE, which are taken from [[1]](#1) (see the *Top 25 most dangerous CWE codes as reflected in CVEs 2018-2022* graphic) and XXXX: [CWE-699 (Software Development)](https://cwe.mitre.org/data/definitions/699.html) and [CWE-1000 (Research Concepts)](https://cwe.mitre.org/data/definitions/1000.html) were used to select the vulnerability types, though the method may include additional high-level categories for the sake of brevity. XXXX 
 
-To map a vulnerability using Table 1, identify the CWE associated with the vulnerability and review the corresponding row to determine whether the mapping applies. If options are listed for a component, read the notes in the table and the technique descriptions on the ATT&CK website to select the most appropriate. In some cases, the reader will be directed to identify the exploit method using [Standard Exploit Methods](new-methodology.md#standard-exploit-methods) and impacts using [Keyword-based Mapping](new-methodology.md#keyword-based-mapping).
+To map a vulnerability using **Table 1**, identify the CWE associated with the vulnerability and review the corresponding row to determine whether the mapping applies. If options are listed for a component, read the notes in the table and the technique descriptions on the ATT&CK website to select the most appropriate. In some cases, the reader will be directed to identify the exploit method using [Standard Exploit Methods](#standard-exploit-methods) and impacts using [Keyword-based Mapping](#keyword-based-mapping).
 
-If a vulnerability's CWE is not listed in Table 1, it must be mapped using keywords (see [Keyword-based Mapping](new-methodology.md#keyword-based-mapping).
+If a vulnerability's CWE is not listed in Table 1, it must be mapped using keywords (see [Keyword-based Mapping](#keyword-based-mapping).
 
 
-<p style="text-align: center;"><b>Table 1: Common Vulnerability Types</b></p>
+**Table 1. Common Vulnerability Types**
 
 | Associated CWE | Exploitation Method | Primary Impact | Secondary Impact | Notes |
-| ---- | ---- | ---- | ---- | ---------- |
-| [CWE-79](https://cwe.mitre.org/data/definitions/79.html): Cross-site Scripting] | [T1189](https://attack.mitre.org/techniques/T1189/) (Drive-by Compromise); [T1204.001](https://attack.mitre.org/techniques/T1204/001/) (User Execution: Malicious Link)| prim | second | The choice of exploitation method depends on whether the vulnerability is stored (T1189) or whether the victim must click on a malicious link (T1204.001).|
+| ---- | ---- | ---- | ---- | ------- |
+| [CWE-79](https://cwe.mitre.org/data/definitions/79.html): Cross-site Scripting | [T1189](https://attack.mitre.org/techniques/T1189/) (Drive-by Compromise); [T1204.001](https://attack.mitre.org/techniques/T1204/001/) (User Execution: Malicious Link)| prim | second | The choice of exploitation method depends on whether the vulnerability is stored (T1189) or whether the victim must click on a malicious link (T1204.001).|
 | [CWE-787](https://cwe.mitre.org/data/definitions/787.html): Out-of-bounds Write (child of [CWE-119](https://cwe.mitre.org/data/definitions/119.html)) |  | [T1574](https://attack.mitre.org/techniques/T1574) (Hijack Execution Flow)| N/A | |
 
-The table below lists categories of vulnerabilities which cannot be generalized: their VIDs must be identified via [Keyword-based Mapping](#keyword-based-mapping).
+The table below lists categories of vulnerabilities that cannot be generalized. Their VIDs must be identified via [Keyword-based Mapping](#keyword-based-mapping).
 
 | Vulnerability Type | Notes |
 | ---- | ---------- |
@@ -85,19 +85,28 @@ CVE-2020-5210 is a buffer overflow. Buffer overflows modify memory, the "Memory 
 
 ### Standard Exploit Methods
 
-As indicated in the common vulnerability table ([Table 1](new-methodology.md#table-1:-common-vulnerability-types)), some vulnerabilities can be exploited in a variety of ways. In some cases, the exploit method can be identified and mapped to an ATT&CK technique based on the associated vulnerable object (e.g., browser) and entry point of the potential compromise (e.g., user action). Specifics are given in Table 2.
+As indicated in the common vulnerability table **Table 1**, some vulnerabilities can be exploited in a variety of ways. In some cases, the exploit method can be identified and mapped to an ATT&CK technique based on the associated vulnerable object (e.g., browser) and entry point of the potential compromise (e.g., user action). Specifics are given in Table 2.
 
-<p style="text-align: center;"><b>Table 2: Standard Exploit Methods</b></p>
+**Table 2. Standard Exploit Methods**
 
-| Vulnerable Object Type | Entry Point | Exploit Method | Notes |
-| ---- | ---- | ---- | ---------- |
-|endpoint protection software; mail server| user action:email/non-enterprise service:file |T1204.002 (User Execution: Malicious File) | |
-|endpoint protection software; mail server| user action:email/non-enterprise service:link|T1204.001 (User Execution: Malicious Link) | |
-|endpoint protection software| user action: non-enterprise service| T1566.003 (Phishing: Spearphishing via Service) | |
-|browser; website|user action|[T1189](https://attack.mitre.org/techniques/T1189) (Drive-by Compromise)| |
-|application (webserver, database, software)| user action | [T1190](https://attack.mitre.org/techniques/T1190) (Exploit Public-Facing Application) | |
+| Vulnerable Object Type | Entry Point | Exploit Method |
+| ---- | ---- | ---- |
+|endpoint protection software; mail server| user action:email/non-enterprise service:execute file |T1204.002 (User Execution: Malicious File) |
+|endpoint protection software; mail server| user action:email/non-enterprise service:click link|T1204.001 (User Execution: Malicious Link) |
+|endpoint protection software| user action:non-enterprise service:| T1566.003 (Phishing:Spearphishing via Service) |
+|mail server; endpoing protection software | user action:email:execute file | T1566.001 (Phishing:Spearphishing Attachment) |
+|os; firmware | user action:insert media | [T1091](https://attack.mitre.org/techniques/T1091) (Replication Through Removeable Media) |
+|client application (brower, office app) | client application | [T1203](https://attack.mitre.org/techniques/T1203) Exploitation for Client Execution |
+|browser; website|user action:visit website|[T1189](https://attack.mitre.org/techniques/T1189) (Drive-by Compromise)|
+|application (webserver, database, software)| user action:visit website | [T1190](https://attack.mitre.org/techniques/T1190) (Exploit Public-Facing Application) |
+|external remote service (vpn, service, software) | remote service | [T1133](https://attack.mitre.org/techniques/T1133) (External Remote Service) |
+|internal remote service (smb, netlogon, print spooler) | remote service | [T1210](https://attack.mitre.org/techniques/T1210) (Exploitation of Remote Services) |
+| application | network traffic | [T1140](https://attack.mitre.org/techniques/T1140) (Network Sniffing) | 
 
-Note that the exploit of a vulnerability (e.g., Network Sniffing) is not necessarily the same technique that exploits the user/machine. In other words, the *impact* of exploiting the vulnerability may be exploitation of the user/machine. 
+
+Note that the exploit of a vulnerability (e.g., Network Sniffing) is not necessarily the same technique that exploits the user/machine. GIVE EXPLICIT EXAMPLE... In other words, the *impact* of exploiting the vulnerability may be exploitation of the user/machine. 
+
+Also, some vulnerabilities require no explicit exploitation. For example, hardcoded credentials or default credentials make systems vulnerable without explicit exploitation (i.e., off-network discovery of the credentials is not considered exploitation).
 
 #### Standard Exploit Method Example
 
@@ -129,7 +138,15 @@ Keywords from the vulnerability description can be used to identify ATT&CK techn
 
 There also may be times when a vulnerability is more specific than "common". In these cases a search should be made to identify any applicable techniques. An example is given below.
 
-As mentioned above, there may be no reasonable choice for a primary impact. However, it may be possible to use an [ATT&CK Tactic](#higher-level-tactics) or a generic exploitation technique to define the impact or exploit method. In other cases, it may be sufficient to define only a secondary impact.
+Table 3 gives some potential impacts. Examples follow for determining which ATT&CK technique applies, as well as whether an impact is primary vs. secondary impact.
+
+**Table 3. Common Keyword Mapping**
+
+| Keywords | Potential Impact |
+| ---- | ---- |
+|  |  |
+
+As mentioned previously, there may be no reasonable choice for a primary and/or secondary impact. However, it may be possible to use an [ATT&CK Tactic](#higher-level-tactics) or a generic exploitation technique to define the impact or exploit method. In other cases, it may be sufficient to define only a secondary impact.
 
 #### Higher-level Tactics
 
@@ -141,7 +158,7 @@ Only six tactics contain techniques relevant to vulnerabilities: [Initial Access
 
 | Tactic | Generic Exploitation Technique |
 | ---- | ---- |
-| [TA0001](https://attack.mitre.org/tactics/TA0001) Initial Access | See [Standard Exploit Methods](new-methodology.md#standard-exploit-methods) |
+| [TA0001](https://attack.mitre.org/tactics/TA0001) Initial Access | See [Standard Exploit Methods](#standard-exploit-methods) |
 | [TA0002](https://attack.mitre.org/tactics/TA0002) Execution | [T1203](https://attack.mitre.org/techniques/T1203) (Exploitation for Client Execution) |
 | [TA0004](https://attack.mitre.org/tactics/TA0004) Privilege Escalation | [T1068](https://attack.mitre.org/techniques/T1068) (Exploitation for Privilege Escalation) |
 | [TA0005](https://attack.mitre.org/tactics/TA0005) Defense Evasion | [T1211](https://attack.mitre.org/techniques/T1211) (Exploitation for Defense Evasion) |
@@ -165,12 +182,6 @@ Only six tactics contain techniques relevant to vulnerabilities: [Initial Access
 
 
 # OLD STUFF
-
-
-#### Vulnerability Type Method
-
-Vulnerabilities that have the same type often also have the same attack steps.  This method maps ATT&CK techniques to some of the more common vulnerability types.  [CWE-699 (Software Development)](https://cwe.mitre.org/data/definitions/699.html) and [CWE-1000 (Research Concepts)](https://cwe.mitre.org/data/definitions/1000.html) were used to select the vulnerability types, though the method may include additional high-level categories for the sake of brevity.
-
 
 ### Mapping & Methodology Scope
 
@@ -239,27 +250,3 @@ This section provides ATT&CK technique mappings based on common functions an att
 | Change ownership or permissions | [T1222](https://attack.mitre.org/techniques/T1222) (File and Directory Permissions Modification) | N/A |  |
 | Memory Modification (Memory Buffer Errors, Pointer Issues, Type Errors, etc.) | [T1574](https://attack.mitre.org/techniques/T1574) (Hijack Execution Flow), [T1499.004](https://attack.mitre.org/techniques/T1499/004) (Endpoint Denial of Service: Application or System Exploitation) | N/A | T1574 is not in the right tactic for this vulnerability.  Propose adding it to Execution.  "Hijack Execution Flow" is used here because exploitation for memory modification usually involves changing the execution flow of a process to execute the attacker’s code. |
 | Memory Read (Memory Buffer Errors, Pointer Issues, Type Errors, etc.) | [T1005](https://attack.mitre.org/techniques/T1005) (Data from Local System), [T1499.004](https://attack.mitre.org/techniques/T1499/004) (Endpoint Denial of Service: Application or System Exploitation) | [T1211](https://attack.mitre.org/techniques/T1211) (Exploitation for Defense Evasion), [T1212](https://attack.mitre.org/techniques/T1212) (Exploitation for Credential Access) | May need a sub-technique. |
-
-# Exploitation Techniques
-
-This section provides common mappings for exploit techniques to ATT&CK techniques. Use this list together with the vulnerability type mappings section to determine the appropriate exploitation technique when not specified in the vulnerability type mappings.  This list can also be used independently to determine the appropriate exploitation technique. 
-
-## Tips for mapping exploitation techniques:
-Start by asking, "what steps are necessary to exploit this vulnerability?" 
-
-- If the user executes a malicious file: [T1204.002](https://attack.mitre.org/techniques/T1204/002) (User Execution: Malicious File)
-  - Where did this file come from?
-    - A malicious link: [T1204.001](https://attack.mitre.org/techniques/T1204/001) (User Execution: Malicious Link)
-    - An email: [T1566.001](https://attack.mitre.org/techniques/T1566/001) (Phishing: Spearphishing Attachment)
-    - A third-party service: [T1566.003](https://attack.mitre.org/techniques/T1566/003) (Phishing: Spearphishing via Service)
-    - Removable media:  [T1091](https://attack.mitre.org/techniques/T1091) (Replication Through Removable Media)
-- If the user clicks a malicious link: [T1204.001](https://attack.mitre.org/techniques/T1204/001) (User Execution: Malicious Link)
-  - Where did this link come from?
-    - An email: [T1566.002](https://attack.mitre.org/techniques/T1566/002) (Phishing: Spearphishing Link)
-    - A third-party service: [T1566.003](https://attack.mitre.org/techniques/T1566/003) (Phishing: Spearphishing via Service)
-- If the user visits a malicious website: [T1189](https://attack.mitre.org/techniques/T1189) (Drive-by Compromise)
-- If the attacker exploits remote system application: [T1190](https://attack.mitre.org/techniques/T1190) (Exploit Public-Facing Application)
-- If the attacker exploits an external service: [T1133](https://attack.mitre.org/techniques/T1133) (External Remote Services), [T1210](https://attack.mitre.org/techniques/T1210) (Exploitation of Remote Services)
-- If the attacker uses valid/default credentials: [T1078](https://attack.mitre.org/techniques/T1078) (Valid Accounts)
-- If the target uses hardcoded credentials: [T1078](https://attack.mitre.org/techniques/T1078) (Valid Accounts)
-- If the attacker "sniffs" unencrypted network traffic: [T1040](https://attack.mitre.org/techniques/T1040) (Network Sniffing)
