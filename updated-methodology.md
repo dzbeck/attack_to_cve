@@ -16,7 +16,7 @@ Using these three components, a **Vulnerability Impact Description (VID)** can b
 
 > The vulnerability allows the attacker to use **[EXPLOITATION METHOD]** to gain **[Primary Impact]**, which leads to **[Secondary Impact]**.
 
-![/cve-to-attack-sentence.png](/cve-to-attack-sentence.png)
+![/new-cve-to-attack-sentence.png](/new-cve-to-attack-sentence.png)
 
 Given a vulnerability, it may not be possible to identify an ATT&CK technique for each VID component because ATT&CK's level of abstraction may not match that of the vulnerability. Also, ATT&CK defines techniques used in *real-world* attacks and does not include theoretical techniques. However, as we illustrate in the examples below, a VID with just one or two components is still useful.
 
@@ -91,16 +91,16 @@ As indicated in the common vulnerability table **Table 1**, some vulnerabilities
 
 | Vulnerable Object Type | Entry Point | Exploit Method |
 | ---- | ---- | ---- |
-|endpoint protection software; mail server| user action:email/non-enterprise service:execute file |T1204.002 (User Execution: Malicious File) |
-|endpoint protection software; mail server| user action:email/non-enterprise service:click link|T1204.001 (User Execution: Malicious Link) |
-|endpoint protection software| user action:non-enterprise service:| T1566.003 (Phishing:Spearphishing via Service) |
-|mail server; endpoing protection software | user action:email:execute file | T1566.001 (Phishing:Spearphishing Attachment) |
+|endpoint protection software; mail server| user action:execute file (email/non-enterprise service) |T1204.002 (User Execution: Malicious File) |
+|endpoint protection software; mail server| user action:click link (email/non-enterprise service)|T1204.001 (User Execution: Malicious Link) |
+|endpoint protection software| user action:click link (non-enterprise service)| T1566.003 (Phishing: Spearphishing via Service) |
+|mail server; endpoing protection software | user action:execute file | T1566.001 (Phishing: Spearphishing Attachment) |
 |os; firmware | user action:insert media | [T1091](https://attack.mitre.org/techniques/T1091) (Replication Through Removeable Media) |
 |client application (brower, office app) | client application | [T1203](https://attack.mitre.org/techniques/T1203) Exploitation for Client Execution |
 |browser; website|user action:visit website|[T1189](https://attack.mitre.org/techniques/T1189) (Drive-by Compromise)|
 |application (webserver, database, software)| user action:visit website | [T1190](https://attack.mitre.org/techniques/T1190) (Exploit Public-Facing Application) |
-|external remote service (vpn, service, software) | remote service | [T1133](https://attack.mitre.org/techniques/T1133) (External Remote Service) |
-|internal remote service (smb, netlogon, print spooler) | remote service | [T1210](https://attack.mitre.org/techniques/T1210) (Exploitation of Remote Services) |
+|external remote service (vpn, service, software) | external remote service | [T1133](https://attack.mitre.org/techniques/T1133) (External Remote Service) |
+|internal remote service (smb, netlogon, print spooler) | internal remote service | [T1210](https://attack.mitre.org/techniques/T1210) (Exploitation of Remote Services) |
 | application | network traffic | [T1140](https://attack.mitre.org/techniques/T1140) (Network Sniffing) | 
 
 
