@@ -96,13 +96,13 @@ As indicated in the common vulnerability table **Table 1**, some vulnerabilities
 |endpoint security solution| user action:click link (non-enterprise service)| T1566.003 (Phishing: Spearphishing via Service) |
 |mail server; endpoing protection software | user action:execute file | T1566.001 (Phishing: Spearphishing Attachment) |
 |os; firmware | user action:insert media | [T1091](https://attack.mitre.org/techniques/T1091) (Replication Through Removeable Media) |
-|client application (brower, office app) | client application | [T1203](https://attack.mitre.org/techniques/T1203) Exploitation for Client Execution |
+|client application (browser, office app) | client application | [T1203](https://attack.mitre.org/techniques/T1203) Exploitation for Client Execution |
 |browser; website|user action:visit website|[T1189](https://attack.mitre.org/techniques/T1189) (Drive-by Compromise)|
-|application (webserver, database, software)| user action:visit website; application | [T1190](https://attack.mitre.org/techniques/T1190) (Exploit Public-Facing Application) |
+|server application (webserver, database, software)| user action:visit website | [T1190](https://attack.mitre.org/techniques/T1190) (Exploit Public-Facing Application) |
+| network-based application | network, commandline | [T1140](https://attack.mitre.org/techniques/T1140) (Network Sniffing); [T1059](https://attack.mitre.org/techniques/T1059) (Command and Scripting Interpreter) |
 |external remote service (vpn, service, software) | external remote service | [T1133](https://attack.mitre.org/techniques/T1133) (External Remote Service) |
 |internal remote service (smb, netlogon, print spooler) | internal remote service | [T1210](https://attack.mitre.org/techniques/T1210) (Exploitation of Remote Services) |
-| application | network, commandline | [T1140](https://attack.mitre.org/techniques/T1140) (Network Sniffing); [T1059](https://attack.mitre.org/techniques/T1059) (Command and Scripting Interpreter) | 
-
+ 
 
 Note that the exploit of a vulnerability (e.g., Network Sniffing) is not necessarily the same technique that exploits the user/machine. For example, consider the VID associated with the opening example where it is the secondary impact (T1078 (Valid Accounts)) that exploits the user/machine:
 
