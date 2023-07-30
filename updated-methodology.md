@@ -106,7 +106,7 @@ As indicated in the common vulnerability table **Table 1**, some vulnerabilities
 
 Note that the exploit of a vulnerability (e.g., Network Sniffing) is not necessarily the same technique that exploits the user/machine. For example, consider the VID associated with the first example:
 
-![/new-cve-to-attack-1st-example.png](/new-cve-to-attack-1st-example.png)
+![/cve-to-attack-1st-example.png](/cve-to-attack-1st-example.png)
 
 Here, it is the secondary impact that exploits the user/machine. 
 
