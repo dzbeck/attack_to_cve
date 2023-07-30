@@ -18,17 +18,17 @@ Using these three components, a **Vulnerability Impact Description (VID)** can b
 
 ![/cve-to-attack-sentence.png](/cve-to-attack-sentence.png)
 
-Given a vulnerability, it may not be possible to identify an ATT&CK technique for each VID category because ATT&CK's level of abstraction may not match that of the vulnerability. Also, ATT&CK defines techniques used in *real-world* attacks and does not include theoretical techniques. But as we illustrate in the examples below, a VID with just one or two components is still useful.
+Given a vulnerability, it may not be possible to identify an ATT&CK technique for each VID component because ATT&CK's level of abstraction may not match that of the vulnerability. Also, ATT&CK defines techniques used in *real-world* attacks and does not include theoretical techniques. However, as we illustrate in the examples below, a VID with just one or two components is still useful.
 
 ##	Mapping Methodology
 
-Mapping vulnerabilities to ATT&CK techniques--identifying exploit method and impacts--involves one or more of the following activities:
+Mapping vulnerabilities to ATT&CK techniques (identifying exploit method and impacts) involves one or more of the following activities:
 
-- **Consider Common Vulnerability Types** - vulnerabilities based on the same weakness (e.g., CWE-79: cross-site scripting) will often have the same ATT&CK mapping. The [Common Vulnerability Types](new-methodology.md#common-vulnerability-types) section includes a list of common vulnerability types which provides a VID (or a starting point) for many vulnerabilities. 
-- **Consider Standard Exploit Methods** - Vulnerabilities of the same type can often be exploited in many different ways. However details can lead to identification of a specific exploit method. The [Standard Exploit Methods](new-methodology.md#standard-exploit-methods) section includes a collection of exploit methods based the type of vulnerable object and the attack entry point. 
-- **Identify Techniques Using Keywords** - While many vulnerabilities can be mapped to ATT&CK using the common vulnerability table, there are many more that require a once-off, custom mapping. In these cases, keywords in the vulnerability's description can be used to identify the ATT&CK techniques corresponding to the exploit method and impact components of a VID. Details are given in the [Keyword-based Mapping](new-methodology.md#keyword-based-mapping) section.
+- **Consider Common Vulnerability Types** - vulnerabilities based on the same weakness (e.g., CWE-79: cross-site scripting) will often have the same ATT&CK mapping. The [Common Vulnerability Types](#common-vulnerability-types) section includes a list of common vulnerability types that provides a VID for many vulnerabilities. 
+- **Consider Standard Exploit Methods** - Vulnerabilities of the same type can often be exploited in many different ways. However, specifics of a vulnerability can lead to identification of a specific exploit method. The [Standard Exploit Methods](#standard-exploit-methods) section includes a collection of exploit methods based the type of vulnerable object and the attack entry point. 
+- **Identify Techniques Using Keywords** - While many vulnerabilities can be mapped to ATT&CK using the common vulnerability table, there are many more that require a once-off, custom mapping. In these cases, keywords in the vulnerability's description can be used to identify the ATT&CK techniques associated with the exploit method and impact components of a VID. Details are given in the [Keyword-based Mapping](new-methodology.md#keyword-based-mapping) section.
 
-Example mappings are given in each section.
+Example mappings, [Background Notes](#background-notes) and [References](#references) are also included below.
 
 ### Common Vulnerability Types
 
@@ -36,7 +36,7 @@ Vulnerabilities of the same type will often have the same or similar technique m
 
 To map a vulnerability using Table 1, identify the CWE associated with the vulnerability and review the corresponding row to determine whether the mapping applies. If options are listed for a component, read the notes in the table and the technique descriptions on the ATT&CK website to select the most appropriate. In some cases, the reader will be directed to identify the exploit method using [Standard Exploit Methods](new-methodology.md#standard-exploit-methods) and impacts using [Keyword-based Mapping](new-methodology.md#keyword-based-mapping).
 
-If a vulnerability's CWE is not listed in Table 1, it will have to be mapped using keywords (see [Keyword-based Mapping](new-methodology.md#keyword-based-mapping).
+If a vulnerability's CWE is not listed in Table 1, it must be mapped using keywords (see [Keyword-based Mapping](new-methodology.md#keyword-based-mapping).
 
 
 <p style="text-align: center;"><b>Table 1: Common Vulnerability Types</b></p>
@@ -44,12 +44,15 @@ If a vulnerability's CWE is not listed in Table 1, it will have to be mapped usi
 | Associated CWE | Exploitation Method | Primary Impact | Secondary Impact | Notes |
 | ---- | ---- | ---- | ---- | ---------- |
 | [CWE-79](https://cwe.mitre.org/data/definitions/79.html): Cross-site Scripting] | [T1189](https://attack.mitre.org/techniques/T1189/) (Drive-by Compromise); [T1204.001](https://attack.mitre.org/techniques/T1204/001/) (User Execution: Malicious Link)| prim | second | The choice of exploitation method depends on whether the vulnerability is stored (T1189) or whether the victim must click on a malicious link (T1204.001).|
-| [CWE-787](https://cwe.mitre.org/data/definitions/787.html): Out-of-bounds Write; child of [CWE-119](https://cwe.mitre.org/data/definitions/119.html) |  | [T1574](https://attack.mitre.org/techniques/T1574) (Hijack Execution Flow)| N/A | |
+| [CWE-787](https://cwe.mitre.org/data/definitions/787.html): Out-of-bounds Write (child of [CWE-119](https://cwe.mitre.org/data/definitions/119.html)) |  | [T1574](https://attack.mitre.org/techniques/T1574) (Hijack Execution Flow)| N/A | |
 
+The table below lists categories of vulnerabilities which cannot be generalized: their VIDs must be identified via [Keyword-based Mapping](#keyword-based-mapping).
 
-[See Mapping Impacts](new-methodology.md#mapping-impacts)  | [See the Functionality Section](new-methodology.md#functionality) | N/A | The impacts of authentication, authorization, and permissions errors generally depend on the functionality missing the authentication, authorization or permission. |
+| Vulnerability Type | Notes |
+| ---- | ---------- |
+| Improper Access Control | The impacts of authentication, authorization, and permissions errors generally depend on the specific functionality missing the authentication, authorization or permission. |
 
-#### Examples
+#### Common Vulnerability Type Examples
 
 The examples below illustrate how the Common Vulnerability Types table can be used to define VIDs.
 
@@ -65,14 +68,14 @@ CVE-2020-6960 is a SQL injection vulnerability (CWE-79). The SQL injection entry
 
 CVE-2018-17900 is about insecure credential handling.  The in "General Credential Management Errors" vulnerability type applies for this vulnerability.  In this case, both mappings in the methodology apply.  The Primary Impact is [T1552](https://attack.mitre.org/techniques/T1552) (Unsecured Credentials), when then leads to the Secondary Impact allowing the adversary to use [T1078](https://attack.mitre.org/techniques/T1078) (Valid Accounts).
 
-A discussion on identifying the exploit method are given in the [Standard Exploit Methods](new-methodology.md#standard-exploit-methods) example section. 
+A discussion on identifying the exploit method is given [below](#standard-exploit-method-example) example section. (NEED TO REWRITE THESE TWO EXAMPLES FOR THE NEW ORDER)
 
 
 [CVE-2020-11036](https://nvd.nist.gov/vuln/detail/CVE-2020-11036) 
 
-> 
+> In GLPI before version 9.4.6 there are multiple related stored XSS vulnerabilities. The package is vulnerable to Stored XSS in the comments of items in the Knowledge base. Adding a comment with content "<script>alert(1)</script>" reproduces the attack. This can be exploited by a user with administrator privileges in the User-Agent field. It can also be exploited by an outside party through the following steps: 1. Create a user with the surname `" onmouseover="alert(document.cookie)` and an empty first name. 2. With this user, create a ticket 3. As an administrator (or other privileged user) open the created ticket 4. On the "last update" field, put your mouse on the name of the user 5. The XSS fires This is fixed in version 9.4.6.
 
-CVE-2020-11036 is a cross-site scripting (XSS) vulnerability.  For XSS vulnerabilities, there are standard Primary Impact and Secondary Impact mappings (T1059.007 and T1185 respectively).  However, the Exploitation Technique depends on what type of XSS vulnerability it is.  Since CVE-2020-11036 is a stored XSS vulnerability, the mapping should be [T1189](https://attack.mitre.org/techniques/T1189) (Drive-by Compromise), as the attack is stored in the web page and the victims are attacked by visiting the infected web page.
+CVE-2020-11036 is a cross-site scripting (XSS) vulnerability.  For XSS vulnerabilities, there are standard Primary Impact and Secondary Impact mappings (T1059.007 and T1185 respectively).  However, the Exploitation Technique depends on what type of XSS vulnerability it is.  Since CVE-2020-11036 is a *stored* XSS vulnerability, the mapping should be [T1189](https://attack.mitre.org/techniques/T1189) (Drive-by Compromise), as the attack is stored in the web page and victims are attacked by visiting the infected web page.
 
 [CVE-2020-5210](https://nvd.nist.gov/vuln/detail/CVE-2020-5210) 
 
@@ -82,7 +85,7 @@ CVE-2020-5210 is a buffer overflow. Buffer overflows modify memory, the "Memory 
 
 ### Standard Exploit Methods
 
-As indicated in the common vulnerability table ([Table 1](new-methodology.md#table-1:-common-vulnerability-types)), some vulnerabilities can be exploited in a variety of ways. In some cases though, the exploit method can be identified and mapped to an ATT&CK technique based on the associated vulnerable object (e.g., browser) and entry point of the potential compromise (e.g., user action). Specifics are given in Table 2.
+As indicated in the common vulnerability table ([Table 1](new-methodology.md#table-1:-common-vulnerability-types)), some vulnerabilities can be exploited in a variety of ways. In some cases, the exploit method can be identified and mapped to an ATT&CK technique based on the associated vulnerable object (e.g., browser) and entry point of the potential compromise (e.g., user action). Specifics are given in Table 2.
 
 <p style="text-align: center;"><b>Table 2: Standard Exploit Methods</b></p>
 
@@ -94,9 +97,9 @@ As indicated in the common vulnerability table ([Table 1](new-methodology.md#tab
 |browser; website|user action|[T1189](https://attack.mitre.org/techniques/T1189) (Drive-by Compromise)| |
 |application (webserver, database, software)| user action | [T1190](https://attack.mitre.org/techniques/T1190) (Exploit Public-Facing Application) | |
 
-Note that the exploit of a vuln (e.g., Network Sniffing) is not necessarily the same technique that exploits the user/machine. In other words, the *impact* of exploiting the vulnerability may be exploitation of the user/machine. 
+Note that the exploit of a vulnerability (e.g., Network Sniffing) is not necessarily the same technique that exploits the user/machine. In other words, the *impact* of exploiting the vulnerability may be exploitation of the user/machine. 
 
-#### Example
+#### Standard Exploit Method Example
 
 [**CVE-2018-17900**](http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-17900)
 
@@ -121,12 +124,12 @@ Furthermore, its description could be re-written using the ATT&CK framework (com
 
 Keywords from the vulnerability description can be used to identify ATT&CK techniques and sub-techniques appropriate to a VID. Someone who knows ATT&CK well may only need to confirm the appropriateness of their choice. Others can identify techniques via a search:
 
-- **ATT&CK Search** - most direct but it's not a smart search and will only find the exact sequence of the search. See Example below... A nice tool that allows searching is [ATT&CK Powered Suit]().
+- **ATT&CK Search** - most direct but not a smart search and will only find the exact text sequences. See Example below... The [ATT&CK Powered Suit](https://mitre-engenuity.org/cybersecurity/center-for-threat-informed-defense/attack-powered-suit/) browser extension enables quick searches for ATT&CK content without disrupting workflow.
 - **Google Search** - Google will find options that include multiple keywords... For example, 
 
 There also may be times when a vulnerability is more specific than "common". In these cases a search should be made to identify any applicable techniques. An example is given below.
 
-As mentioned above, there may be no reasonable choice for a primary impact. However, it may be possible to use an [ATT&CK Tactic](new-methodology.md#higher-level-tactics) or a generic exploitation technique to define the impact or exploit method. In other cases, it may be sufficient to define only a secondary impact.
+As mentioned above, there may be no reasonable choice for a primary impact. However, it may be possible to use an [ATT&CK Tactic](#higher-level-tactics) or a generic exploitation technique to define the impact or exploit method. In other cases, it may be sufficient to define only a secondary impact.
 
 #### Higher-level Tactics
 
@@ -145,14 +148,14 @@ Only six tactics contain techniques relevant to vulnerabilities: [Initial Access
 | [TA0006](https://attack.mitre.org/tactics/TA0006) Credential Access | [T1212](https://attack.mitre.org/techniques/T1212) (Exploitation for Credential Access) |
 | [TA0008](https://attack.mitre.org/tactics/TA0008) Lateral Movement | [T1210](https://attack.mitre.org/techniques/T1210) (Exploitation of Remote Services) |
 
-## Examples ##
+#### Keyword-based Mapping Examples
 
 
 
-## Notes
+## Background Notes
 
 * Using ATT&CK should not require any more or less information than normally provided in a vulnerability record. Using ATT&CK enables you to *standardize* how you describe vulnerability information so that readers can leverage the resources built on top of ATT&CK.
-* We focus on Enterprise ATT&CK, but content from Mobile and ICS ATT&CK is included as needed. These are identified as such...
+* The methodology focuses on Enterprise ATT&CK, but content from Mobile and ICS ATT&CK is included as needed. These techniques are identified with "Mobile-" and "ICS-" prefixes.
 
 ## References
 
