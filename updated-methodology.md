@@ -85,18 +85,18 @@ CVE-2020-5210 is a buffer overflow. Buffer overflows modify memory, the "Memory 
 
 ### Standard Exploit Methods
 
-As indicated in the common vulnerability table **Table 1**, some vulnerabilities can be exploited in a variety of ways. In some cases, the exploit method can be identified and mapped to an ATT&CK technique based on the associated vulnerable object (e.g., browser) and entry point of the potential compromise (e.g., user action). Specifics are given in Table 2.
+As indicated in the common vulnerability table, some vulnerabilities can be exploited in a variety of ways. In some cases, the exploit method can be identified and mapped to an ATT&CK technique based on the associated vulnerable object (e.g., browser) and entry point of the potential compromise (e.g., user action). Standard exploit methods are given in **Table 2**.
 
 **Table 2. Standard Exploit Methods**
 
-| Vulnerable Object Type | Entry Point | Exploit Method |
+| Vulnerable Object | Entry Point | Exploit Method |
 | ---- | ---- | ---- |
 |endpoint security solution; mail server| user action:execute file (email/non-enterprise service) |T1204.002 (User Execution: Malicious File) |
 |endpoint security solution; mail server| user action:click link (email/non-enterprise service)|T1204.001 (User Execution: Malicious Link) |
 |endpoint security solution| user action:click link (non-enterprise service)| T1566.003 (Phishing: Spearphishing via Service) |
-|mail server; endpoing protection software | user action:execute file | T1566.001 (Phishing: Spearphishing Attachment) |
+|endpoint security solution; mail server | user action:execute file | T1566.001 (Phishing: Spearphishing Attachment) |
 |os; firmware | user action:insert media | [T1091](https://attack.mitre.org/techniques/T1091) (Replication Through Removeable Media) |
-|client application (browser, office app) | client application | [T1203](https://attack.mitre.org/techniques/T1203) Exploitation for Client Execution |
+|client application (browser, office app) | client application | [T1203](https://attack.mitre.org/techniques/T1203) (Exploitation for Client Execution) |
 |browser; website|user action:visit website|[T1189](https://attack.mitre.org/techniques/T1189) (Drive-by Compromise)|
 |server application (webserver, database, software)| user action:visit website | [T1190](https://attack.mitre.org/techniques/T1190) (Exploit Public-Facing Application) |
 | network-based application | network, commandline | [T1140](https://attack.mitre.org/techniques/T1140) (Network Sniffing); [T1059](https://attack.mitre.org/techniques/T1059) (Command and Scripting Interpreter) |
@@ -142,12 +142,12 @@ Keywords from the vulnerability description can be used to identify ATT&CK techn
 
 There also may be times when a vulnerability is more specific than "common". In these cases a search should be made to identify any applicable techniques. An example is given below.
 
-Table 3 gives some potential impacts. Cases where a secondary impact is unlikely or too varied are marked as "N/A". Examples follow for determining which ATT&CK technique applies, as well as whether an impact is primary vs. secondary. 
+**Table 3** gives some potential impacts. Cases where a secondary impact is unlikely or too varied are marked as "N/A". Examples follow for determining which ATT&CK technique applies, as well as whether an impact is primary vs. secondary. 
 
 **Table 3. Common Keyword Mapping**
 
 | Keywords | Primary Impact | Secondary Impact |
-| ---- | ---- | ---- |
+| ---- | ---- | ------ |
 | create account | T1136 (Create Account) | T1078 (Valid Accounts)  |
 | disable protections | T1562 (Impair Defenses) | N/A | 
 | reboot system | T1529 (System Shutdown/Reboot) | N/A |
