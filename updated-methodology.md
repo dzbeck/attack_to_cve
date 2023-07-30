@@ -28,7 +28,7 @@ Mapping vulnerabilities to ATT&CK techniques (identifying exploit method and imp
 - **Consider Standard Exploit Methods** - Vulnerabilities of the same type can often be exploited in many different ways. However, specifics of a vulnerability can lead to identification of a specific exploit method. The [Standard Exploit Methods](#standard-exploit-methods) section includes a collection of exploit methods based the type of vulnerable object and the attack entry point. 
 - **Identify Techniques Using Keywords** - While many vulnerabilities can be mapped to ATT&CK using the common vulnerability table, there are many more that require a once-off, custom mapping. In these cases, keywords in the vulnerability's description can be used to identify the ATT&CK techniques associated with the exploit method and impact components of a VID. Details are given in the [Keyword-based Mapping](#keyword-based-mapping) section.
 
-Example mappings, [Background Notes](#background-notes) and [References](#references) are also included below.
+Example mappings, [Background Notes](#background-notes) and [References](#references) are included below.
 
 ### Common Vulnerability Types
 
@@ -104,7 +104,11 @@ As indicated in the common vulnerability table **Table 1**, some vulnerabilities
 | application | network traffic | [T1140](https://attack.mitre.org/techniques/T1140) (Network Sniffing) | 
 
 
-Note that the exploit of a vulnerability (e.g., Network Sniffing) is not necessarily the same technique that exploits the user/machine. GIVE EXPLICIT EXAMPLE... In other words, the *impact* of exploiting the vulnerability may be exploitation of the user/machine. 
+Note that the exploit of a vulnerability (e.g., Network Sniffing) is not necessarily the same technique that exploits the user/machine. For example, consider the VID associated with the first example:
+
+![/new-cve-to-attack-1st-example.png](/new-cve-to-attack-1st-example.png)
+
+Here, it is the secondary impact that exploits the user/machine. 
 
 Also, some vulnerabilities require no explicit exploitation. For example, hardcoded credentials or default credentials make systems vulnerable without explicit exploitation (i.e., off-network discovery of the credentials is not considered exploitation).
 
