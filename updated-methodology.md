@@ -36,7 +36,7 @@ Vulnerabilities of the same type will often have the same or similar technique m
 
 To map a vulnerability using **Table 1**, identify the CWE associated with the vulnerability and review the corresponding row to determine whether the mapping applies. If options are listed for a component, read the notes in the table and/or the technique descriptions on the ATT&CK website to select the most appropriate. In some cases, the reader will be directed to identify the exploit method using [Standard Exploit Methods](#standard-exploit-methods) and impacts using [Keyword-based Mapping](#keyword-based-mapping).
 
-If a vulnerability's is not associated with a CWE, or if its associated CWE is not listed in Table 1, it must be mapped using keywords (see [Keyword-based Mapping](#keyword-based-mapping).
+If a vulnerability's is not associated with a CWE, or if its associated CWE is not listed in **Table 1**, it must be mapped using keywords (see [Keyword-based Mapping](#keyword-based-mapping).
 
 
 **Table 1. Common Vulnerability Types**
@@ -44,7 +44,7 @@ If a vulnerability's is not associated with a CWE, or if its associated CWE is n
 | Associated CWE | Exploitation Method | Primary Impact | Secondary Impact | Notes |
 | ---- | ---- | ---- | ---- | ------- |
 | [CWE-79](https://cwe.mitre.org/data/definitions/79.html): Cross-site Scripting | [T1189](https://attack.mitre.org/techniques/T1189/) (Drive-by Compromise); [T1204.001](https://attack.mitre.org/techniques/T1204/001/) (User Execution: Malicious Link)| [T1059.007](https://attack.mitre.org/techniques/T1059/007) (Command and Scripting Interpreter: JavaScript) | [T1557](https://attack.mitre.org/techniques/T1557) (Adversary-in-the-Middle) | The choice of exploitation method depends on whether the vulnerability is stored (T1189) or whether the victim must click on a malicious link (T1204.001).|
-| [CWE-787](https://cwe.mitre.org/data/definitions/787.html): Out-of-bounds Write (child of [CWE-119](https://cwe.mitre.org/data/definitions/119.html)) | see [Standard Exploit Methods](#standard-exploit-methods) | [T1574](https://attack.mitre.org/techniques/T1574) (Hijack Execution Flow);  [T1499.004](https://attack.mitre.org/techniques/T1499/004) (Endpoint Denial of Service: Application or System Exploitation)| see [Keyword-based Mapping](#keyword-based-mapping) | A buffer overflow vulnerability is an example of this type. |
+| [CWE-787](https://cwe.mitre.org/data/definitions/787.html): Out-of-bounds Write (child of [CWE-119](https://cwe.mitre.org/data/definitions/119.html)) | see [Standard Exploit Methods](#standard-exploit-methods) | [T1574](https://attack.mitre.org/techniques/T1574) (Hijack Execution Flow);  [T1499.004](https://attack.mitre.org/techniques/T1499/004) (Endpoint Denial of Service: Application or System Exploitation)| see [Keyword-based Mapping](#keyword-based-mapping) | A buffer overflow vulnerability is an example of this common vulnerability type. |
 
 As listed below, some vulnerability types cannot be generalized. Their VIDs must be identified via [Keyword-based Mapping](#keyword-based-mapping).
 
@@ -142,13 +142,20 @@ Keywords from the vulnerability description can be used to identify ATT&CK techn
 
 There also may be times when a vulnerability is more specific than "common". In these cases a search should be made to identify any applicable techniques. An example is given below.
 
-Table 3 gives some potential impacts. Examples follow for determining which ATT&CK technique applies, as well as whether an impact is primary vs. secondary impact.
+Table 3 gives some potential impacts. Cases where a secondary impact is unlikely or too varied are marked as "N/A". Examples follow for determining which ATT&CK technique applies, as well as whether an impact is primary vs. secondary. 
 
 **Table 3. Common Keyword Mapping**
 
-| Keywords | Potential Impact |
-| ---- | ---- |
-|  |  |
+| Keywords | Primary Impact | Secondary Impact |
+| ---- | ---- | ---- |
+| create account | T1136 (Create Account) | T1078 (Valid Accounts)  |
+| disable protections | T1562 (Impair Defenses) | N/A | 
+| reboot system | T1529 (System Shutdown/Reboot) | N/A |
+| install application | T1476 (Deliver Malicious App via Other Means) | N/A |
+| modify configuration | T1222 ( File and Directory Permissions Modification); T1112 (Modify Registry); T1601 (Modify System Image); T1632-Mobile (Subvert Trust Controls); T1556 (Modify Authentication Process) | N/A |
+| exfiltrate data | T1005 (Data from Local System) | N/A |
+| obtain credentials | T1552 (Unsecured Credentials); T1556 (Modify Authentication Process); T1649 (Steal or Forge Authentication Certificates) | N/A |
+| read files | T1005 (Data from Local System) | N/A |
 
 As mentioned previously, there may be no reasonable choice for a primary and/or secondary impact. However, it may be possible to use an [ATT&CK Tactic](#higher-level-tactics) or a generic exploitation technique to define the impact or exploit method. In other cases, it may be sufficient to define only a secondary impact.
 
