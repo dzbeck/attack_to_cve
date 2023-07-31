@@ -58,7 +58,7 @@ The examples below illustrate how the Common Vulnerability Types table can be us
 
 [CVE-2020-6960](https://nvd.nist.gov/vuln/detail/CVE-2020-6960) 
 
-> The following versions of MAXPRO VMS and NVR /<snip/> contain an SQL injection vulnerability that could give an attacker remote unauthenticated access to the web user interface with administrator-level privileges.
+> The following versions of MAXPRO VMS and NVR --snip-- contain an SQL injection vulnerability that could give an attacker remote unauthenticated access to the web user interface with administrator-level privileges.
 
 CVE-2020-6960 is a SQL injection vulnerability (CWE-79). The SQL injection entry in Table 1 contains mappings for the Primary Impact and Secondary Impact. For the Primary Impact, the mapping is [T1059](https://attack.mitre.org/techniques/T1059) (Command and Scripting Interpreter). For the Secondary Impact, there are several options to choose from.  However, the CVE record does not provide enough information to choose a Secondary Impact.
 
