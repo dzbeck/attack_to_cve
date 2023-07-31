@@ -5,9 +5,9 @@
 2. Which gets you the unsecured credentials ([T1552](https://attack.mitre.org/techniques/T1552/))
 3. Which you can use to access a valid account ([T1078](https://attack.mitre.org/techniques/T1078/))
 
-Once the attacker has access to the valid account, there are too many possible paths to list them all.  
+Once the attacker has access to the valid account, there are too many possible paths to list them all. 
 
-When developing this mapping methodology, we found that three steps of an associated attack were as many as could be reasonably described.  We define these steps as follows:
+When developing this mapping methodology, we found that three steps of an associated attack were as many as could be reasonably described. We define these steps as follows:
 1. **Exploitation Method** - the method used to exploit the vulnerability (T1040 in the example).
 2. **Primary Impact** - the initial benefit (impact) gained through exploitation of the vulnerability (T1552 in the example).
 3. **Secondary Impact** - what the adversary can do by gaining the benefit of the primary impact (T1078 in the example).
@@ -24,11 +24,11 @@ Given a vulnerability, it may not be possible to identify an ATT&CK technique fo
 
 This methodology establishes a starting point for vulnerability reporters and researchers to standardize the way they describe vulnerability data. Generally, mapping vulnerabilities to ATT&CK techniques (identifying exploit method and impacts) involves one or more of the following activities:
 
-- **Consider Common Vulnerability Types** - vulnerabilities based on the same weakness (e.g., CWE-79: cross-site scripting) will often have the same ATT&CK mapping. The [Common Vulnerability Types](#common-vulnerability-types) section includes a list of common vulnerability types that provides a VID for many vulnerabilities. 
-- **Consider Standard Exploit Methods** - Vulnerabilities of the same type can often be exploited in many different ways. However, a vulnerability's details can lead to identification of a specific exploit method. The [Standard Exploit Methods](#standard-exploit-methods) section includes a collection of exploit methods based the type of vulnerable object and the attack entry point. 
-- **Identify Techniques Using Keywords** - While many vulnerabilities can be mapped to ATT&CK using the common vulnerability table, there are many more that require a once-off, custom mapping. In these cases, keywords in the vulnerability's description can be used to identify the ATT&CK techniques associated with its exploit method and impact components. Details are given in the [Keyword-based Mapping](#keyword-based-mapping) section.
+- **Consider Common Vulnerability Types** - vulnerabilities based on the same weakness (e.g., CWE-79: cross-site scripting) will often have the same ATT&CK mapping. The [Common Vulnerability Types](#common-vulnerability-types) section includes a list of common vulnerability types and their associated VIDs. 
+- **Consider Standard Exploit Methods** - Vulnerabilities of the same type can often be exploited in many different ways. However, vulnerability details can lead to identification of a specific exploit method. The [Standard Exploit Methods](#standard-exploit-methods) section includes a list of exploit methods based the type of vulnerable object and the attack entry point. 
+- **Identify Techniques Using Keywords** - While many vulnerabilities can be mapped to ATT&CK using the common vulnerability types table, many more vulnerabilities require a once-off, custom mapping. In these cases, keywords in the vulnerability's description can be used to identify the ATT&CK techniques associated with its exploit method and impact components. Details are given in the [Keyword-based Mapping](#keyword-based-mapping) section.
 
-Example mappings, [Background Notes](#background-notes) and [References](#references) are included below. 
+Example mappings, [Methodology Notes](#methodology-notes) and [References](#references) are included below. 
 
 ### Common Vulnerability Types
 
@@ -36,7 +36,7 @@ Vulnerabilities of the same type will often have the same or similar technique m
 
 To map a vulnerability using **Table 1**, identify the CWE associated with the vulnerability and review the corresponding row to determine whether the mapping applies. If options are listed for a component, read the notes in the table and/or the technique descriptions on the ATT&CK website to select the most appropriate. In some cases, the reader will be directed to identify the exploit method using [Standard Exploit Methods](#standard-exploit-methods) and impacts using [Keyword-based Mapping](#keyword-based-mapping).
 
-If a vulnerability is not explicitly associated with a CWE, or if its associated CWE is not listed in Table 1, it must be mapped using keywords (see [Keyword-based Mapping](#keyword-based-mapping).
+If a vulnerability is not explicitly associated with a CWE, or if its associated CWE is not listed in Table 1, it should be mapped using keywords (see [Keyword-based Mapping](#keyword-based-mapping).
 
 
 **Table 1A. Common Vulnerability Types - Top 25**
@@ -44,7 +44,7 @@ If a vulnerability is not explicitly associated with a CWE, or if its associated
 | Associated CWE | Exploitation Method | Primary Impact | Secondary Impact | Notes |
 | ---- | ---- | ---- | ---- | ------- |
 | CWE-79: [Cross-site Scripting](https://cwe.mitre.org/data/definitions/79.html) | [T1189](https://attack.mitre.org/techniques/T1189/) (Drive-by Compromise); [T1204.001](https://attack.mitre.org/techniques/T1204/001/) (User Execution: Malicious Link)| [T1059.007](https://attack.mitre.org/techniques/T1059/007) (Command and Scripting Interpreter: JavaScript) | [T1557](https://attack.mitre.org/techniques/T1557) (Adversary-in-the-Middle) | The choice of exploitation method depends on whether the vulnerability is stored (T1189) or whether the victim must click on a malicious link (T1204.001).|
-| CWE-787: [Out-of-bounds Write](https://cwe.mitre.org/data/definitions/787.html) (child of [CWE-119](https://cwe.mitre.org/data/definitions/119.html)) | see [Standard Exploit Methods](#standard-exploit-methods) | [T1574](https://attack.mitre.org/techniques/T1574) (Hijack Execution Flow);  [T1499.004](https://attack.mitre.org/techniques/T1499/004) (Endpoint Denial of Service: Application or System Exploitation)| see [Keyword-based Mapping](#keyword-based-mapping) | A buffer overflow vulnerability is an example of this type. |
+| CWE-787: [Out-of-bounds Write](https://cwe.mitre.org/data/definitions/787.html) (child of [CWE-119](https://cwe.mitre.org/data/definitions/119.html)) | [T1574](https://attack.mitre.org/techniques/T1574) (Hijack Execution Flow) | [T1499.004](https://attack.mitre.org/techniques/T1499/004) (Endpoint Denial of Service: Application or System Exploitation)| see [Keyword-based Mapping](#keyword-based-mapping) | A buffer overflow vulnerability is an example of this type. |
 | CWE-125: [Out-of-bounds Read](https://cwe.mitre.org/data/definitions/125.html) | see [Standard Exploit Methods](#standard-exploit-methods) | [T1005](https://attack.mitre.org/techniques/T1005) (Data from Local System); [T1499.004](https://attack.mitre.org/techniques/T1499/004) (Endpoint Denial of Service: Application or System Exploitation) | [T1211](https://attack.mitre.org/techniques/T1211) (Exploitation for Defense Evasion), [T1212](https://attack.mitre.org/techniques/T1212) (Exploitation for Credential Access) | |
 
 **Table 1B. Common Vulnerability Types - Well-Known**
@@ -93,9 +93,9 @@ As indicated in the common vulnerability table, some vulnerabilities can be expl
 
 | Vulnerable Object | Entry Point | Exploit Method |
 | ---- | ---- | ---- |
-|internet-facing host/system (webserver, website, database, service)| internet | [T1190](https://attack.mitre.org/techniques/T1190) (Exploit Public-Facing Application), [T1211](https://attack.mitre.org/techniques/T1211) (Exploitation for Defense Evasion) |
-| network-based application | network, commandline | [T1140](https://attack.mitre.org/techniques/T1140) (Network Sniffing); [T1059](https://attack.mitre.org/techniques/T1059) (Command and Scripting Interpreter) |
-|client application (browser, office app) | remote system | [T1203](https://attack.mitre.org/techniques/T1203) (Exploitation for Client Execution) |
+|internet-facing host/system (webserver, website, database, service)| internet | [T1190](https://attack.mitre.org/techniques/T1190) (Exploit Public-Facing Application); [T1211](https://attack.mitre.org/techniques/T1211) (Exploitation for Defense Evasion); [T1574](https://attack.mitre.org/techniques/T1574) (Hijack Execution Flow) |
+| network-based application | network, commandline | [T1574](https://attack.mitre.org/techniques/T1574) (Hijack Execution Flow); [T1140](https://attack.mitre.org/techniques/T1140) (Network Sniffing); [T1059](https://attack.mitre.org/techniques/T1059) (Command and Scripting Interpreter) |
+|client application (browser, office app) | remote system | [T1574](https://attack.mitre.org/techniques/T1574) (Hijack Execution Flow); [T1203](https://attack.mitre.org/techniques/T1203) (Exploitation for Client Execution) |
 |browser|user action:visit website|[T1189](https://attack.mitre.org/techniques/T1189) (Drive-by Compromise)|
 |external remote service (vpn, service, software) | external remote service | [T1133](https://attack.mitre.org/techniques/T1133) (External Remote Service) |
 |internal remote service (smb, netlogon, print spooler) | internal remote service | [T1210](https://attack.mitre.org/techniques/T1210) (Exploitation of Remote Services) |
@@ -189,7 +189,7 @@ Only six tactics contain techniques relevant to vulnerabilities: [Initial Access
 
 
 
-## Notes
+## Methodology Notes
 
 * Using ATT&CK should not require any more or less information than normally provided in a vulnerability record. Using ATT&CK enables you to *standardize* how you describe vulnerability information so that readers can leverage the resources built on top of ATT&CK.
 * The methodology focuses on Enterprise ATT&CK, but content from Mobile and ICS ATT&CK is included as needed. These techniques are identified with "Mobile-" and "ICS-" prefixes.
