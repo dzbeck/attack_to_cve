@@ -39,7 +39,7 @@ To map a vulnerability using **Table 1**, identify the CWE associated with the v
 If a vulnerability is not explicitly associated with a CWE, or if its associated CWE is not listed in Table 1, it should be mapped using keywords (see [Keyword-based Mapping](#keyword-based-mapping).
 
 
-**Table 1A. Common Vulnerability Types**
+**Table 1. Common Vulnerability Types**
 
 | Associated CWE | Exploitation Method | Primary Impact | Secondary Impact | Notes |
 | ---- | ---- | ---- | ---- | ------- |
@@ -154,11 +154,11 @@ Table 3 lists potential impacts. Cases where numerous secondary impacts are poss
 | change permissions |  [T1222](https://attack.mitre.org/techniques/T1222) (File and Directory Permissions Modification) | *many* |
 | password reset | [T1098]((https://attack.mitre.org/techniques/T1098) (Account Manipulation) | *many* |
 | read files | [T1005](https://attack.mitre.org/techniques/T1005) (Data from Local System) | [T1003.008](https://attack.mitre.org/techniques/T1003/008) (OS Credential Dumping: /etc/passwd and /etc/shadow), [T1552.001](https://attack.mitre.org/techniques/T1552/001) (Unsecured Credentials: Credentials in Files) |
-| delete files | [T1485]((https://attack.mitre.org/techniques/T1485) (Data Destruction) | [T1499.004]((https://attack.mitre.org/techniques/T1499/004) (Endpoint Denial of Service: Application or System Exploitation) |
+| delete files | [T1485](https://attack.mitre.org/techniques/T1485) (Data Destruction) | [T1499.004](https://attack.mitre.org/techniques/T1499/004) (Endpoint Denial of Service: Application or System Exploitation) |
 | exfiltration | [T1005](https://attack.mitre.org/techniques/T1005) (Data from Local System) | [TA0010](https://attack.mitre.org/tactics/TA0010) (Exfiltration) |
 |create/upload file | [T1505.003](https://attack.mitre.org/techniques/T1505/003) (Server Software Component: Web Shell) | [T1059](https://attack.mitre.org/techniques/T1059) (Command and Scripting Interpreter) |
 | write to existing file | [T1565.001](https://attack.mitre.org/techniques/T1565/001) (Data Manipulation) | [T1059](https://attack.mitre.org/techniques/T1059) (Command and Scripting Interpreter), [T1574](https://attack.mitre.org/techniques/T1574) (Hijack Execution Flow), [T1554](https://attack.mitre.org/techniques/T1554) (Compromise Client Software Binary) | 
-| obtain credentials | [T1552]((https://attack.mitre.org/techniques/T1552) (Unsecured Credentials); [T1556]((https://attack.mitre.org/techniques/T1556) (Modify Authentication Process); [T1649]((https://attack.mitre.org/techniques/T1649) (Steal or Forge Authentication Certificates) | *many* |
+| obtain credentials | [T1552](https://attack.mitre.org/techniques/T1552) (Unsecured Credentials); [T1556](https://attack.mitre.org/techniques/T1556) (Modify Authentication Process); [T1649](https://attack.mitre.org/techniques/T1649) (Steal or Forge Authentication Certificates) | *many* |
 | obtain sensitive data (non-credential) | T1005 (Data from Local System) | *many* |
 
 
