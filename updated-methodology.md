@@ -91,17 +91,17 @@ As indicated in the common vulnerability table, some vulnerabilities can be expl
 
 | Vulnerable Object | Entry Point | Exploit Method |
 | ---- | ---- | ---- |
+|internet-facing host/system (webserver, website, database, service)| internet | [T1190](https://attack.mitre.org/techniques/T1190) (Exploit Public-Facing Application), [T1211](https://attack.mitre.org/techniques/T1211) (Exploitation for Defense Evasion) |
+| network-based application | network, commandline | [T1140](https://attack.mitre.org/techniques/T1140) (Network Sniffing); [T1059](https://attack.mitre.org/techniques/T1059) (Command and Scripting Interpreter) |
+|client application (browser, office app) | remote system | [T1203](https://attack.mitre.org/techniques/T1203) (Exploitation for Client Execution) |
+|browser|user action:visit website|[T1189](https://attack.mitre.org/techniques/T1189) (Drive-by Compromise)|
+|external remote service (vpn, service, software) | external remote service | [T1133](https://attack.mitre.org/techniques/T1133) (External Remote Service) |
+|internal remote service (smb, netlogon, print spooler) | internal remote service | [T1210](https://attack.mitre.org/techniques/T1210) (Exploitation of Remote Services) |
 |endpoint security solution; mail server| user action:execute file (email/non-enterprise service) |T1204.002 (User Execution: Malicious File) |
 |endpoint security solution; mail server| user action:click link (email/non-enterprise service)|T1204.001 (User Execution: Malicious Link) |
 |endpoint security solution| user action:click link (non-enterprise service)| T1566.003 (Phishing: Spearphishing via Service) |
 |endpoint security solution; mail server | user action:execute file | T1566.001 (Phishing: Spearphishing Attachment) |
 |os; firmware | user action:insert media | [T1091](https://attack.mitre.org/techniques/T1091) (Replication Through Removeable Media) |
-|client application (browser, office app) | client application | [T1203](https://attack.mitre.org/techniques/T1203) (Exploitation for Client Execution) |
-|browser; website|user action:visit website|[T1189](https://attack.mitre.org/techniques/T1189) (Drive-by Compromise)|
-|server application (webserver, database, software)| user action:visit website | [T1190](https://attack.mitre.org/techniques/T1190) (Exploit Public-Facing Application) |
-| network-based application | network, commandline | [T1140](https://attack.mitre.org/techniques/T1140) (Network Sniffing); [T1059](https://attack.mitre.org/techniques/T1059) (Command and Scripting Interpreter) |
-|external remote service (vpn, service, software) | external remote service | [T1133](https://attack.mitre.org/techniques/T1133) (External Remote Service) |
-|internal remote service (smb, netlogon, print spooler) | internal remote service | [T1210](https://attack.mitre.org/techniques/T1210) (Exploitation of Remote Services) |
  
 
 Note that the exploit of a vulnerability (e.g., Network Sniffing) is not necessarily the same technique that exploits the user/machine. For example, consider the VID associated with the opening example where it is the secondary impact (T1078 (Valid Accounts)) that exploits the user/machine:
