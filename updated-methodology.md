@@ -168,6 +168,8 @@ As mentioned previously, there may be no reasonable choice for a primary and/or 
 
 #### Higher-level Tactics
 
+**XXX - Need to separate out use of tactics for identifying exploit techniques vs primary/secondary impacts - below is current a mix... XXX**
+
 An ATT&CK tactic represents the "why" of an ATT&CK technique or sub-technique and serve as useful contextual categories for individual techniques. [[4]](#4) For example, an adversary may take one action to achieve [Credential Access](https://attack.mitre.org/tactics/TA0006) and another action to achieve [Privilege Escalation](https://attack.mitre.org/tactics/TA0004).
 
 When a technique can not be identified, it may suffice to identify a tactic, which may be an easier task because ATT&CK defines just fourteen tactics, and not all are relevant to vulnerabilities. For example, the Command and Control tactic encompasses techniques adversaries use to communicate with systems under their control. The adversary may have exploited a vulnerability to gain control of the system but is not likely to exploit a vulnerability to send commands once a system is under its control.  
