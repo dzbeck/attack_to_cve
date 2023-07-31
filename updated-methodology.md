@@ -12,7 +12,7 @@ When developing this mapping methodology, we found that three steps of an associ
 2. **Primary Impact** - the initial benefit (impact) gained through exploitation of the vulnerability (T1552 in the example).
 3. **Secondary Impact** - what the adversary can do by gaining the benefit of the primary impact (T1078 in the example).
 
-Using these three components, a **Vulnerability Impact Description (VID)** can be developed:
+Using these three components, a **Vulnerability Impact Description (VID)** can be developed (XXX is it useful to have an acronyn??XXX):
 
 > The vulnerability allows the attacker to use **[EXPLOITATION METHOD]** to gain **[Primary Impact]**, which leads to **[Secondary Impact]**.
 
@@ -39,7 +39,7 @@ To map a vulnerability using **Table 1**, identify the CWE associated with the v
 If a vulnerability is not explicitly associated with a CWE, or if its associated CWE is not listed in Table 1, it should be mapped using keywords (see [Keyword-based Mapping](#keyword-based-mapping). Keyword-based mapping should also be used in the cases where vulnerability details suggest other or additional ATT&CK techniques may apply. Vulnerability types for which a secondary impact is unlikely to be identified are marked "N/A".
 
 
-**Table 1. Common Vulnerability Types**
+**Table 1. Common Vulnerability Types** XXX Currently in the process of adding updated mappings to table... XXX
 
 | Associated CWE | Exploitation Method | Primary Impact | Secondary Impact | Notes |
 | ---- | ---- | ---- | ---- | ------- |
@@ -168,7 +168,7 @@ As mentioned previously, there may be no reasonable choice for a primary and/or 
 
 #### Higher-level Tactics
 
-**XXX - Need to separate out use of tactics for identifying exploit techniques vs primary/secondary impacts - below is current a mix... XXX**
+**XXX - Need to separate out use of tactics for identifying exploit techniques vs primary/secondary impacts - below is currently a mix... XXX**
 
 An ATT&CK tactic represents the "why" of an ATT&CK technique or sub-technique and serve as useful contextual categories for individual techniques. [[4]](#4) For example, an adversary may take one action to achieve [Credential Access](https://attack.mitre.org/tactics/TA0006) and another action to achieve [Privilege Escalation](https://attack.mitre.org/tactics/TA0004).
 
@@ -203,7 +203,7 @@ Only six tactics contain techniques relevant to vulnerabilities: [Initial Access
 <a name="2">[2]</a> ATT&CK Design and Philosophy paper
 
 
-# OLD STUFF
+# OLD STUFF BEING INTEGRATED/UPDATED...
 
 XXX - use diagram still? XXX
 ![/cve-to-attack-no-secondary-impact.png](/cve-to-attack-no-secondary-impact.png)
