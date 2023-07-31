@@ -44,7 +44,7 @@ If a vulnerability is not explicitly associated with a CWE, or if its associated
 | Associated CWE | Exploitation Method | Primary Impact | Secondary Impact | Notes |
 | ---- | ---- | ---- | ---- | ------- |
 | CWE-79: [Cross-site Scripting](https://cwe.mitre.org/data/definitions/79.html) | [T1189](https://attack.mitre.org/techniques/T1189/) (Drive-by Compromise); [T1204.001](https://attack.mitre.org/techniques/T1204/001/) (User Execution: Malicious Link)| [T1059.007](https://attack.mitre.org/techniques/T1059/007) (Command and Scripting Interpreter: JavaScript) | [T1557](https://attack.mitre.org/techniques/T1557) (Adversary-in-the-Middle) | The choice of exploitation method depends on whether the vulnerability is stored (T1189) or whether the victim must click on a malicious link (T1204.001).|
-| CWE-787: [Out-of-bounds Write](https://cwe.mitre.org/data/definitions/787.html) (child of [CWE-119](https://cwe.mitre.org/data/definitions/119.html)) | see [Standard Exploit Methods](#standard-exploit-methods) | [T1574](https://attack.mitre.org/techniques/T1574) (Hijack Execution Flow) | [T1499.004](https://attack.mitre.org/techniques/T1499/004) (Endpoint Denial of Service: Application or System Exploitation) | A buffer overflow vulnerability is an example of this type. |
+| CWE-787: [Out-of-bounds Write](https://cwe.mitre.org/data/definitions/787.html) (child of [CWE-119](https://cwe.mitre.org/data/definitions/119.html)) | see [Standard Exploit Methods](#standard-exploit-methods) | [T1574](https://attack.mitre.org/techniques/T1574) (Hijack Execution Flow) | [T1499.004](https://attack.mitre.org/techniques/T1499/004) (Endpoint Denial of Service: Application or System Exploitation); see [Keyword-based Mapping](#keyword-based-mapping) | A buffer overflow vulnerability is an example of this type. |
 | CWE-125: [Out-of-bounds Read](https://cwe.mitre.org/data/definitions/125.html) | see [Standard Exploit Methods](#standard-exploit-methods) | [T1005](https://attack.mitre.org/techniques/T1005) (Data from Local System); [T1499.004](https://attack.mitre.org/techniques/T1499/004) (Endpoint Denial of Service: Application or System Exploitation) | [T1211](https://attack.mitre.org/techniques/T1211) (Exploitation for Defense Evasion), [T1212](https://attack.mitre.org/techniques/T1212) (Exploitation for Credential Access) | |
 | CWE-89: [SQL Injection](https://cwe.mitre.org/data/definitions/89.html) | [T1059](https://attack.mitre.org/techniques/T1059) (Command and Scripting Interpreter) | [T1005](https://attack.mitre.org/techniques/T1005) (Data from Local System), [T1505.003](https://attack.mitre.org/techniques/T1505/003) (Server Software Component: Web Shell), [T1136](https://attack.mitre.org/techniques/T1136) (Create Account), [T1190](https://attack.mitre.org/techniques/T1190) (Exploit Public-Facing Application), [T1565.001](https://attack.mitre.org/techniques/T1565/001) (Data Manipulation) | N/A |
 | | | | | |
@@ -79,7 +79,7 @@ CVE-2020-11036 is a cross-site scripting (XSS) vulnerability (CWE-79).  For XSS 
 
 > In NetHack before 3.6.5, an invalid argument to the -w command line option can cause a buffer overflow resulting in a crash or remote code execution/privilege escalation. This vulnerability affects systems that have NetHack installed suid/sgid and shared systems that allow users to influence command line options.
 
-CVE-2020-5210 is a buffer overflow (CWE-787). Buffer overflows modify memory, which result in [T1574](https://attack.mitre.org/techniques/T1574) (Hijack Execution Flow) and [T1499.004](https://attack.mitre.org/techniques/T1499/004) (Endpoint Denial of Service: Application or System Exploitation).  A search of ATT&CK shows that the vulnerability also has an **exploitation method mapping** of [T1548.001](https://attack.mitre.org/techniques/T1548/001) (Abuse Elevation Control Mechanism: Setuid and Setgid); however Table 1 does not list T1548.001 as an exploitation technique because it is relatively rare.
+CVE-2020-5210 is a buffer overflow (CWE-787). Buffer overflows modify memory, which result in [T1574](https://attack.mitre.org/techniques/T1574) (Hijack Execution Flow) and [T1499.004](https://attack.mitre.org/techniques/T1499/004) (Endpoint Denial of Service: Application or System Exploitation).  A search of ATT&CK shows that the vulnerability also has [T1548.001](https://attack.mitre.org/techniques/T1548/001) (Abuse Elevation Control Mechanism: Setuid and Setgid) as an exploitation method; however Table 1 does not list T1548.001 as an exploitation technique because it is relatively rare. This method would be identified by considering keywords. 
 
 ### Standard Exploit Methods
 
@@ -116,6 +116,8 @@ Exploitation methods can also be identified based on keywords. Please see [Keywo
 
 > Yokogawa STARDOM Controllers FCJ, *--snip--* The web application improperly protects credentials which could allow an attacker to obtain credentials for remote access to controllers.
 
+**XXX This example appears above also - need to edit both so they work together XXX**
+
 To find the VID, start by identifying the vulnerability type. For CVE-2018-17900, the vulnerability is a credential management issue.  Looking through the list of vulnerability types in the methodology, the "General Credential Management Errors" vulnerability type appears to be the most appropriate.  Using one of the lower-level credential management vulnerability types is preferable but the CVE record does not provide the level of detail needed to do so.  
 
 The ”General Credential Management Errors” vulnerability type maps to [T1552](https://attack.mitre.org/techniques/T1552) (Unsecured Credentials) for the primary impact and [T1078](https://attack.mitre.org/techniques/T1078) (Valid Accounts) for the secondary impact.  These mappings follow the description in the CVE record.  “improperly protects credentials which could allow an attacker to obtain credentials” matches T1552 and “for remote access to controllers” matches T1078.
@@ -138,7 +140,7 @@ Keywords from the vulnerability description, which often describe the functional
 - **ATT&CK Search** - most direct but not a smart search and will only find the exact text sequences. See Example below... The [ATT&CK Powered Suit](https://mitre-engenuity.org/cybersecurity/center-for-threat-informed-defense/attack-powered-suit/) browser extension enables quick searches for ATT&CK content without disrupting workflow.
 - **Internet Search Engine** - Search engines will find options that include multiple keywords... For example, 
 
-There also may be times when a vulnerability is more specific than "common". In these cases a search should be made to identify any applicable techniques. An example is given below.
+As the example mapping for CVE-2020-5210 showed, a vulnerability may involve "uncommon" details, in which case keyword mapping should be used to identify additional techniques.
 
 Table 3 lists potential impacts. Cases where numerous secondary impacts are possible are marked "*many*" and cases where a secondary impact is unlikely are marked "N/A". Techniques given for impacts are those most common but in general, the list is not exhaustive (especially for secondary impacts). Examples follow for determining which ATT&CK technique(s) apply to a vulnerability. 
 
@@ -152,14 +154,14 @@ Table 3 lists potential impacts. Cases where numerous secondary impacts are poss
 | install application | [T1203](https://attack.mitre.org/techniques/T1203) (Exploitation for Client Execution); [T1218]() (Signed Binary Proxy Execution) | *many* |
 | modify configuration | T1222 ( File and Directory Permissions Modification); T1112 (Modify Registry); T1601 (Modify System Image); Mobile-T1632 (Subvert Trust Controls); T1556 (Modify Authentication Process) | *many* |
 | change permissions |  [T1222](https://attack.mitre.org/techniques/T1222) (File and Directory Permissions Modification) | *many* |
-| password reset | [T1098]((https://attack.mitre.org/techniques/T1098) (Account Manipulation) | *many* |
+| password reset | [T1098](https://attack.mitre.org/techniques/T1098) (Account Manipulation) | *many* |
 | read files | [T1005](https://attack.mitre.org/techniques/T1005) (Data from Local System) | [T1003.008](https://attack.mitre.org/techniques/T1003/008) (OS Credential Dumping: /etc/passwd and /etc/shadow), [T1552.001](https://attack.mitre.org/techniques/T1552/001) (Unsecured Credentials: Credentials in Files) |
 | delete files | [T1485](https://attack.mitre.org/techniques/T1485) (Data Destruction) | [T1499.004](https://attack.mitre.org/techniques/T1499/004) (Endpoint Denial of Service: Application or System Exploitation) |
 | exfiltration | [T1005](https://attack.mitre.org/techniques/T1005) (Data from Local System) | [TA0010](https://attack.mitre.org/tactics/TA0010) (Exfiltration) |
 |create/upload file | [T1505.003](https://attack.mitre.org/techniques/T1505/003) (Server Software Component: Web Shell) | [T1059](https://attack.mitre.org/techniques/T1059) (Command and Scripting Interpreter) |
-| write to existing file | [T1565.001](https://attack.mitre.org/techniques/T1565/001) (Data Manipulation) | [T1059](https://attack.mitre.org/techniques/T1059) (Command and Scripting Interpreter), [T1574](https://attack.mitre.org/techniques/T1574) (Hijack Execution Flow), [T1554](https://attack.mitre.org/techniques/T1554) (Compromise Client Software Binary) | 
+| write to file | [T1565.001](https://attack.mitre.org/techniques/T1565/001) (Data Manipulation) | [T1059](https://attack.mitre.org/techniques/T1059) (Command and Scripting Interpreter), [T1574](https://attack.mitre.org/techniques/T1574) (Hijack Execution Flow), [T1554](https://attack.mitre.org/techniques/T1554) (Compromise Client Software Binary) | 
 | obtain credentials | [T1552](https://attack.mitre.org/techniques/T1552) (Unsecured Credentials); [T1556](https://attack.mitre.org/techniques/T1556) (Modify Authentication Process); [T1649](https://attack.mitre.org/techniques/T1649) (Steal or Forge Authentication Certificates) | *many* |
-| obtain sensitive data (non-credential) | T1005 (Data from Local System) | *many* |
+| obtain data | T1005 (Data from Local System) | *many* |
 
 
 As mentioned previously, there may be no reasonable choice for a primary and/or secondary impact. However, it may be possible to use an [ATT&CK Tactic](#higher-level-tactics) or a generic exploitation technique to define the impact or exploit method. In other cases, it may be sufficient to define only a secondary impact.
@@ -189,7 +191,7 @@ Only six tactics contain techniques relevant to vulnerabilities: [Initial Access
 
 * Using ATT&CK should not require any more or less information than normally provided in a vulnerability record. Using ATT&CK enables you to *standardize* how you describe vulnerability information so that readers can leverage the resources built on top of ATT&CK.
 * The methodology focuses on Enterprise ATT&CK, but content from Mobile and ICS ATT&CK is included as needed. These techniques are identified with "Mobile-" and "ICS-" prefixes.
-* The techniques mapped in the tables are those most common. In many cases, other techniques could likely apply.
+* Technique mappings are only included for a vulnerability type when it is likely that different vulnerabilities in the group share that technique.  For example, vulnerabilities that modify memory (e.g., buffer overflows) share a common primary impact, but the secondary impacts and exploitation techniques are so varied that the methodology refers the user to standard exploit methods and keyword-based mapping. 
 
 ## References
 
@@ -244,26 +246,3 @@ The vulnerability type section contains mappings for many of the common vulnerab
 | Session Fixation | [T1563](https://attack.mitre.org/techniques/T1563) (Remote Service Session Hijacking) | N/A | N/A | Often can be used for Initial Access. |
 | Uncontrolled Resource Consumption | [T1499](https://attack.mitre.org/techniques/T1499) (Endpoint Denial of Service) | N/A | N/A | A sub-technique may be chosen depending on the type of resource being consumed |
 | Server-Side Request Forgery (SSRF) | [T1090](https://attack.mitre.org/techniques/T1090) (Proxy) | [T1135](https://attack.mitre.org/techniques/T1135) (Network Discovery), [T1005](https://attack.mitre.org/techniques/T1005) (Data from Local System) | [T1133](https://attack.mitre.org/techniques/T1133) (External Remote Service) | Tactic/Technique mismatch for the primary impact. |
-
-# Functionality
-
-This section provides ATT&CK technique mappings based on common functions an attacker may be trying to gain access to.
-
-| Functionality | Primary Impact | Secondary Impact | Notes |
-| --- | --- | --- | --- |
-| Modify Configuration | [T1478](https://attack.mitre.org/techniques/T1478) (Install Insecure or Malicious Configuration) | N/A |  |
-| Create Account | [T1136](https://attack.mitre.org/techniques/T1136) (Create Account) | [T1078](https://attack.mitre.org/techniques/T1078) (Valid Accounts) |  |
-| Disable protections | [T1562](https://attack.mitre.org/techniques/T1562) (Impair Defenses) | N/A |  |
-| Restart/Reboot | [T1529](https://attack.mitre.org/techniques/T1529) (System Shutdown/Reboot) | N/A |  |
-| Install App | [T1476](https://attack.mitre.org/techniques/T1476) (Deliver Malicious App via Other Means) | N/A |  |
-| Read from Memory | [T1005](https://attack.mitre.org/techniques/T1005) (Data from Local System) | N/A |  |
-| Obtain sensitive information: Credentials | [T1552](https://attack.mitre.org/techniques/T1552) (Unsecured Credentials) | N/A |  |
-| Obtain sensitive information: Other data | [T1005](https://attack.mitre.org/techniques/T1005) (Data from Local System) | N/A |  |
-| Password Reset | [T1098](https://attack.mitre.org/techniques/T1098) (Account Manipulation) | N/A |  |
-| Read files | [T1005](https://attack.mitre.org/techniques/T1005) (Data from Local System) | [T1003.008](https://attack.mitre.org/techniques/T1003/008) (OS Credential Dumping: /etc/passwd and /etc/shadow), [T1552.001](https://attack.mitre.org/techniques/T1552/001) (Unsecured Credentials: Credentials in Files) | The list of secondary impacts covers common techniques included in proof-of-concepts but is not exhaustive.  |
-| Delete files | [T1485](https://attack.mitre.org/techniques/T1485) (Data Destruction) | [T1499.004](https://attack.mitre.org/techniques/T1499/004) (Endpoint Denial of Service: Application or System Exploitation) |  |
-| Create/Upload file | [T1505.003](https://attack.mitre.org/techniques/T1505/003) (Server Software Component: Web Shell) | [T1059](https://attack.mitre.org/techniques/T1059) (Command and Scripting Interpreter) | The techniques mapped here are the ones most used when reporting vulnerabilities that create or upload files.  There are likely other techniques that could apply. |
-| Write to existing file | [T1565.001](https://attack.mitre.org/techniques/T1565/001) (Data Manipulation) | [T1059](https://attack.mitre.org/techniques/T1059) (Command and Scripting Interpreter), [T1574](https://attack.mitre.org/techniques/T1574) (Hijack Execution Flow), [T1554](https://attack.mitre.org/techniques/T1554) (Compromise Client Software Binary) | The list of secondary impacts covers common techniques included in proof-of-concepts but is not exhaustive. |
-| Change ownership or permissions | [T1222](https://attack.mitre.org/techniques/T1222) (File and Directory Permissions Modification) | N/A |  |
-| Memory Modification (Memory Buffer Errors, Pointer Issues, Type Errors, etc.) | [T1574](https://attack.mitre.org/techniques/T1574) (Hijack Execution Flow), [T1499.004](https://attack.mitre.org/techniques/T1499/004) (Endpoint Denial of Service: Application or System Exploitation) | N/A | T1574 is not in the right tactic for this vulnerability.  Propose adding it to Execution.  "Hijack Execution Flow" is used here because exploitation for memory modification usually involves changing the execution flow of a process to execute the attacker’s code. |
-| Memory Read (Memory Buffer Errors, Pointer Issues, Type Errors, etc.) | [T1005](https://attack.mitre.org/techniques/T1005) (Data from Local System), [T1499.004](https://attack.mitre.org/techniques/T1499/004) (Endpoint Denial of Service: Application or System Exploitation) | [T1211](https://attack.mitre.org/techniques/T1211) (Exploitation for Defense Evasion), [T1212](https://attack.mitre.org/techniques/T1212) (Exploitation for Credential Access) | May need a sub-technique. |
