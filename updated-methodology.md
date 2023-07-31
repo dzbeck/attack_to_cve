@@ -36,7 +36,7 @@ Vulnerabilities of the same type will often have the same or similar technique m
 
 To map a vulnerability using **Table 1**, identify the CWE associated with the vulnerability and review the corresponding row to determine whether the mapping applies. If options are listed for a component, read the notes in the table and/or the technique descriptions on the ATT&CK website to select the most appropriate. In some cases, the reader will be directed to identify the exploit method using [Standard Exploit Methods](#standard-exploit-methods) and impacts using [Keyword-based Mapping](#keyword-based-mapping).
 
-If a vulnerability is not explicitly associated with a CWE, or if its associated CWE is not listed in Table 1, it should be mapped using keywords (see [Keyword-based Mapping](#keyword-based-mapping). Vulnerability types for which a secondary impact is unlikely to be identified are marked "N/A".
+If a vulnerability is not explicitly associated with a CWE, or if its associated CWE is not listed in Table 1, it should be mapped using keywords (see [Keyword-based Mapping](#keyword-based-mapping). Keyword-based mapping should also be used in the cases where vulnerability details suggest other or additional ATT&CK techniques may apply. Vulnerability types for which a secondary impact is unlikely to be identified are marked "N/A".
 
 
 **Table 1. Common Vulnerability Types**
@@ -44,7 +44,7 @@ If a vulnerability is not explicitly associated with a CWE, or if its associated
 | Associated CWE | Exploitation Method | Primary Impact | Secondary Impact | Notes |
 | ---- | ---- | ---- | ---- | ------- |
 | CWE-79: [Cross-site Scripting](https://cwe.mitre.org/data/definitions/79.html) | [T1189](https://attack.mitre.org/techniques/T1189/) (Drive-by Compromise); [T1204.001](https://attack.mitre.org/techniques/T1204/001/) (User Execution: Malicious Link)| [T1059.007](https://attack.mitre.org/techniques/T1059/007) (Command and Scripting Interpreter: JavaScript) | [T1557](https://attack.mitre.org/techniques/T1557) (Adversary-in-the-Middle) | The choice of exploitation method depends on whether the vulnerability is stored (T1189) or whether the victim must click on a malicious link (T1204.001).|
-| CWE-787: [Out-of-bounds Write](https://cwe.mitre.org/data/definitions/787.html) (child of [CWE-119](https://cwe.mitre.org/data/definitions/119.html)) | [T1574](https://attack.mitre.org/techniques/T1574) (Hijack Execution Flow) | [T1499.004](https://attack.mitre.org/techniques/T1499/004) (Endpoint Denial of Service: Application or System Exploitation)| see [Keyword-based Mapping](#keyword-based-mapping) | A buffer overflow vulnerability is an example of this type. |
+| CWE-787: [Out-of-bounds Write](https://cwe.mitre.org/data/definitions/787.html) (child of [CWE-119](https://cwe.mitre.org/data/definitions/119.html)) | see [Standard Exploit Methods](#standard-exploit-methods) | [T1574](https://attack.mitre.org/techniques/T1574) (Hijack Execution Flow) | [T1499.004](https://attack.mitre.org/techniques/T1499/004) (Endpoint Denial of Service: Application or System Exploitation) | A buffer overflow vulnerability is an example of this type. |
 | CWE-125: [Out-of-bounds Read](https://cwe.mitre.org/data/definitions/125.html) | see [Standard Exploit Methods](#standard-exploit-methods) | [T1005](https://attack.mitre.org/techniques/T1005) (Data from Local System); [T1499.004](https://attack.mitre.org/techniques/T1499/004) (Endpoint Denial of Service: Application or System Exploitation) | [T1211](https://attack.mitre.org/techniques/T1211) (Exploitation for Defense Evasion), [T1212](https://attack.mitre.org/techniques/T1212) (Exploitation for Credential Access) | |
 | CWE-89: [SQL Injection](https://cwe.mitre.org/data/definitions/89.html) | [T1059](https://attack.mitre.org/techniques/T1059) (Command and Scripting Interpreter) | [T1005](https://attack.mitre.org/techniques/T1005) (Data from Local System), [T1505.003](https://attack.mitre.org/techniques/T1505/003) (Server Software Component: Web Shell), [T1136](https://attack.mitre.org/techniques/T1136) (Create Account), [T1190](https://attack.mitre.org/techniques/T1190) (Exploit Public-Facing Application), [T1565.001](https://attack.mitre.org/techniques/T1565/001) (Data Manipulation) | N/A |
 | | | | | |
@@ -53,7 +53,9 @@ If a vulnerability is not explicitly associated with a CWE, or if its associated
 
 #### Examples
 
-The examples below illustrate how the Common Vulnerability Types table can be used to define VIDs.
+**XXX Examples need review/editing XXX**
+
+The examples below illustrate how the common vulnerability types can be used to define VIDs.
 
 [CVE-2020-6960](https://nvd.nist.gov/vuln/detail/CVE-2020-6960) 
 
@@ -67,9 +69,6 @@ CVE-2020-6960 is a SQL injection vulnerability (CWE-89). The SQL injection entry
 
 CVE-2018-17900 is about insecure credential handling.  The in "General Credential Management Errors" vulnerability type applies for this vulnerability.  In this case, both mappings in the methodology apply.  The Primary Impact is [T1552](https://attack.mitre.org/techniques/T1552) (Unsecured Credentials), when then leads to the Secondary Impact allowing the adversary to use [T1078](https://attack.mitre.org/techniques/T1078) (Valid Accounts).
 
-A discussion on identifying the exploit method is given [below](#standard-exploit-method-example) example section. (NEED TO REWRITE THESE TWO EXAMPLES FOR THE NEW ORDER)
-
-
 [CVE-2020-11036](https://nvd.nist.gov/vuln/detail/CVE-2020-11036) 
 
 > In GLPI before version 9.4.6 there are multiple related stored XSS vulnerabilities. The package is vulnerable to Stored XSS in the comments of items in the Knowledge base. Adding a comment with content "<script>alert(1)</script>" reproduces the attack. This can be exploited by a user with administrator privileges in the User-Agent field. It can also be exploited by an outside party through the following steps: 1. Create a user with the surname `" onmouseover="alert(document.cookie)` and an empty first name. 2. With this user, create a ticket 3. As an administrator (or other privileged user) open the created ticket 4. On the "last update" field, put your mouse on the name of the user 5. The XSS fires This is fixed in version 9.4.6.
@@ -80,17 +79,17 @@ CVE-2020-11036 is a cross-site scripting (XSS) vulnerability (CWE-79).  For XSS 
 
 > In NetHack before 3.6.5, an invalid argument to the -w command line option can cause a buffer overflow resulting in a crash or remote code execution/privilege escalation. This vulnerability affects systems that have NetHack installed suid/sgid and shared systems that allow users to influence command line options.
 
-CVE-2020-5210 is a buffer overflow. Buffer overflows modify memory, the "Memory Modification (Memory Buffer Errors, Pointer Issues, Type Errors, etc.)" vulnerability type is used, making the Primary Impacts [T1574](https://attack.mitre.org/techniques/T1574) (Hijack Execution Flow) and [T1499.004](https://attack.mitre.org/techniques/T1499/004) (Endpoint Denial of Service: Application or System Exploitation).  A search of ATT&CK shows that the vulnerability also has an **exploitation method mapping** of [T1548.001](https://attack.mitre.org/techniques/T1548/001) (Abuse Elevation Control Mechanism: Setuid and Setgid). Table 1 does not list T1548.001 as an exploitation technique because it is relatively rare.
+CVE-2020-5210 is a buffer overflow (CWE-787). Buffer overflows modify memory, which result in [T1574](https://attack.mitre.org/techniques/T1574) (Hijack Execution Flow) and [T1499.004](https://attack.mitre.org/techniques/T1499/004) (Endpoint Denial of Service: Application or System Exploitation).  A search of ATT&CK shows that the vulnerability also has an **exploitation method mapping** of [T1548.001](https://attack.mitre.org/techniques/T1548/001) (Abuse Elevation Control Mechanism: Setuid and Setgid); however Table 1 does not list T1548.001 as an exploitation technique because it is relatively rare.
 
 ### Standard Exploit Methods
 
 As indicated in the common vulnerability table, some vulnerabilities can be exploited in a variety of ways. In some cases, the exploit method can be identified and mapped to an ATT&CK technique based on the associated vulnerable object (e.g., browser) and entry point of the potential compromise (e.g., user action). Standard exploit methods are given below.
 
-**Table 2. Standard Exploit Methods**
+**Table 2. Standard Exploit Methods** -- **DRAFT - NEEDS REVIEW**
 
 | Vulnerable Object | Entry Point | Exploit Method |
 | ---- | ---- | ---- |
-|internet-facing host/system (webserver, website, database, service)| internet | [T1190](https://attack.mitre.org/techniques/T1190) (Exploit Public-Facing Application); [T1211](https://attack.mitre.org/techniques/T1211) (Exploitation for Defense Evasion); [T1574](https://attack.mitre.org/techniques/T1574) (Hijack Execution Flow) |
+|internet-facing host/system (webserver, website, database, service)| internet | [T1190](https://attack.mitre.org/techniques/T1190) (Exploit Public-Facing Application); [T1211](https://attack.mitre.org/techniques/T1211) (Exploitation for Defense Evasion); [T1574](https://attack.mitre.org/techniques/T1574) (Hijack Execution Flow) **XXX REVIEW: These all seem more like impacts than ways to exploit the vulnerability. Or if a buffer is vulnerable to overwriting, is T1574 a way to exploit the buffer overflow vulnerability? XXX**|
 | network-based application | network, commandline | [T1574](https://attack.mitre.org/techniques/T1574) (Hijack Execution Flow); [T1140](https://attack.mitre.org/techniques/T1140) (Network Sniffing); [T1059](https://attack.mitre.org/techniques/T1059) (Command and Scripting Interpreter) |
 |client application (browser, office app) | remote system | [T1574](https://attack.mitre.org/techniques/T1574) (Hijack Execution Flow); [T1203](https://attack.mitre.org/techniques/T1203) (Exploitation for Client Execution) |
 |browser|user action:visit website|[T1189](https://attack.mitre.org/techniques/T1189) (Drive-by Compromise)|
