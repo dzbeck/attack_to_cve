@@ -53,7 +53,7 @@ If a vulnerability is not explicitly associated with a CWE, or if its associated
 
 #### Examples
 
-**XXX Examples need review/editing XXX**
+**XXX Examples need further editing XXX**
 
 The examples below illustrate how the common vulnerability types can be used to define VIDs.
 
@@ -89,7 +89,7 @@ As indicated in the common vulnerability table, some vulnerabilities can be expl
 
 | Vulnerable Object | Entry Point | Exploit Method |
 | ---- | ---- | ---- |
-|internet-facing host/system (webserver, website, database, service)| internet | [T1190](https://attack.mitre.org/techniques/T1190) (Exploit Public-Facing Application); [T1211](https://attack.mitre.org/techniques/T1211) (Exploitation for Defense Evasion); [T1574](https://attack.mitre.org/techniques/T1574) (Hijack Execution Flow) **XXX REVIEW: These all seem more like impacts than ways to exploit the vulnerability. Or if a buffer is vulnerable to overwriting, is T1574 a way to exploit the buffer overflow vulnerability? XXX**|
+|internet-facing host/system (webserver, website, database, service)| internet | [T1190](https://attack.mitre.org/techniques/T1190) (Exploit Public-Facing Application); [T1211](https://attack.mitre.org/techniques/T1211) (Exploitation for Defense Evasion); [T1574](https://attack.mitre.org/techniques/T1574) (Hijack Execution Flow) **XXX REVIEW: Are these impacts rather than ways to exploit the vulnerability? Or if a buffer is vulnerable to overwriting, is T1574 a way to exploit the buffer overflow vulnerability? XXX**|
 | network-based application | network, commandline | [T1574](https://attack.mitre.org/techniques/T1574) (Hijack Execution Flow); [T1140](https://attack.mitre.org/techniques/T1140) (Network Sniffing); [T1059](https://attack.mitre.org/techniques/T1059) (Command and Scripting Interpreter) |
 |client application (browser, office app) | remote system | [T1574](https://attack.mitre.org/techniques/T1574) (Hijack Execution Flow); [T1203](https://attack.mitre.org/techniques/T1203) (Exploitation for Client Execution) |
 |browser|user action:visit website|[T1189](https://attack.mitre.org/techniques/T1189) (Drive-by Compromise)|
@@ -164,7 +164,7 @@ Table 3 lists potential impacts. Cases where numerous secondary impacts are poss
 | obtain data | T1005 (Data from Local System) | *many* |
 
 
-As mentioned previously, there may be no reasonable choice for a primary and/or secondary impact. However, it may be possible to use an [ATT&CK Tactic](#higher-level-tactics) or a generic exploitation technique to define the impact or exploit method. In other cases, it may be sufficient to define only a secondary impact.
+As mentioned previously, there may be no reasonable choice for a primary and/or secondary impact. However, it may be possible to use an [ATT&CK Tactic](#higher-level-tactics) or a generic exploitation technique to define the impact or exploit method (e.g., "exfiltration" above). In other cases, it may be sufficient to define only a secondary impact.
 
 #### Higher-level Tactics
 
@@ -191,7 +191,8 @@ Only six tactics contain techniques relevant to vulnerabilities: [Initial Access
 
 * Using ATT&CK should not require any more or less information than normally provided in a vulnerability record. Using ATT&CK enables you to *standardize* how you describe vulnerability information so that readers can leverage the resources built on top of ATT&CK.
 * The methodology focuses on Enterprise ATT&CK, but content from Mobile and ICS ATT&CK is included as needed. These techniques are identified with "Mobile-" and "ICS-" prefixes.
-* Technique mappings are only included for a vulnerability type when it is likely that different vulnerabilities in the group share that technique.  For example, vulnerabilities that modify memory (e.g., buffer overflows) share a common primary impact, but the secondary impacts and exploitation techniques are so varied that the methodology refers the user to standard exploit methods and keyword-based mapping. 
+* Technique mappings are only included for a vulnerability type when it is likely that different vulnerabilities in the group share that technique.  For example, vulnerabilities that modify memory (e.g., buffer overflow) share a primary impact, but the secondary impacts and exploitation techniques are so varied that the methodology refers the user to standard exploit methods and keyword-based mapping. 
+* Some groupings will have more than one technique listed for a mapping category because there are common variations within that grouping.  In these cases, select only the techniques that apply to the vulnerability.  For example, the cross-site scripting (XSS) vulnerability type includes an option of [T1189](https://attack.mitre.org/techniques/T1189) (Drive-by Compromise) or [T1204.001](https://attack.mitre.org/techniques/T1204/001) (User Execution: Malicious Link) depending on whether the attacked is stored or not.
 
 ## References
 
@@ -202,20 +203,12 @@ Only six tactics contain techniques relevant to vulnerabilities: [Initial Access
 
 # OLD STUFF
 
-### Mapping & Methodology Scope
-
-In each method there are cases where we have not included a mapping for all categories (Exploitation Method, Primary Impact, Secondary Impact). Technique mappings are only included for a category when it is likely that different vulnerabilities in the group share that technique.  For example, vulnerabilities that modify memory (e.g., buffer overflows) share a common primary impact, but the secondary impacts and exploitation techniques are so varied that the methodology does not include a mapping for those categories.  
-
+XXX - use diagram still? XXX
 ![/cve-to-attack-no-secondary-impact.png](/cve-to-attack-no-secondary-impact.png)
-
-Some groupings will have more than one technique listed for a mapping category because there are common variations within that grouping.  In these cases, select only the techniques that apply to the vulnerability.  For example, the cross-site scripting (XSS) vulnerability type includes an option of [T1189](https://attack.mitre.org/techniques/T1189) (Drive-by Compromise) or [T1204.001](https://attack.mitre.org/techniques/T1204/001) (User Execution: Malicious Link) depending on whether the attacked is stored or not.
-
-This methodology establishes a starting point for vulnerability reporters and researchers to standardize the way they describe vulnerability data. The methodology does not cover all the ways that systems are vulnerable.
-
 
 # Vulnerability type mappings
 
-The vulnerability type section contains mappings for many of the common vulnerability types.  Mappings for vulnerability types are only included if that type has a common set of techniques used to exploit the vulnerability or that can be executed when the vulnerability is exploited. Each vulnerability type will include a one or more of the following where applicable, a primary and secondary impact and one or more exploitation techniques.
+XXX - using these for links as table filled out above XXX
 
 | Vulnerability Type | Primary Impact | Secondary Impact | Exploitation Technique | Notes |
 | ---- | ---- | ---- | ---- | ---------- |
