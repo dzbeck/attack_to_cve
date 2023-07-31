@@ -148,11 +148,11 @@ Table 3 lists potential impacts. Cases where numerous secondary impacts are poss
 
 | Keywords | Primary Impact | Secondary Impact |
 | ---- | ---- | ------ |
-| create account | T1136 (Create Account) | T1078 (Valid Accounts)  |
-| disable protections | T1562 (Impair Defenses) | *many* | 
-| reboot system | T1529 (System Shutdown/Reboot) | N/A |
+| create account | [T1136](https://attack.mitre.org/techniques/T1136) (Create Account) | [T1078](https://attack.mitre.org/techniques/T1078) (Valid Accounts)  |
+| disable protections | [T1562](https://attack.mitre.org/techniques/T1562) (Impair Defenses) | *many* | 
+| reboot system | [T1529](https://attack.mitre.org/techniques/T1529) (System Shutdown/Reboot) | N/A |
 | install application | [T1203](https://attack.mitre.org/techniques/T1203) (Exploitation for Client Execution); [T1218]() (Signed Binary Proxy Execution) | *many* |
-| modify configuration | T1222 ( File and Directory Permissions Modification); T1112 (Modify Registry); T1601 (Modify System Image); Mobile-T1632 (Subvert Trust Controls); T1556 (Modify Authentication Process) | *many* |
+| modify configuration | [T1222](https://attack.mitre.org/techniques/T1222) ( File and Directory Permissions Modification); [T1112](https://attack.mitre.org/techniques/T1112) (Modify Registry); [T1601](https://attack.mitre.org/techniques/T1601) (Modify System Image); [Mobile-T1632](https://attack.mitre.org/techniques/T1632) (Subvert Trust Controls); [T1556](https://attack.mitre.org/techniques/T1556) (Modify Authentication Process) | *many* |
 | change permissions |  [T1222](https://attack.mitre.org/techniques/T1222) (File and Directory Permissions Modification) | *many* |
 | password reset | [T1098](https://attack.mitre.org/techniques/T1098) (Account Manipulation) | *many* |
 | read files | [T1005](https://attack.mitre.org/techniques/T1005) (Data from Local System) | [T1003.008](https://attack.mitre.org/techniques/T1003/008) (OS Credential Dumping: /etc/passwd and /etc/shadow), [T1552.001](https://attack.mitre.org/techniques/T1552/001) (Unsecured Credentials: Credentials in Files) |
