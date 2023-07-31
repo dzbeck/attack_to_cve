@@ -39,18 +39,14 @@ To map a vulnerability using **Table 1**, identify the CWE associated with the v
 If a vulnerability is not explicitly associated with a CWE, or if its associated CWE is not listed in Table 1, it should be mapped using keywords (see [Keyword-based Mapping](#keyword-based-mapping).
 
 
-**Table 1A. Common Vulnerability Types - Top 25**
+**Table 1A. Common Vulnerability Types**
 
 | Associated CWE | Exploitation Method | Primary Impact | Secondary Impact | Notes |
 | ---- | ---- | ---- | ---- | ------- |
 | CWE-79: [Cross-site Scripting](https://cwe.mitre.org/data/definitions/79.html) | [T1189](https://attack.mitre.org/techniques/T1189/) (Drive-by Compromise); [T1204.001](https://attack.mitre.org/techniques/T1204/001/) (User Execution: Malicious Link)| [T1059.007](https://attack.mitre.org/techniques/T1059/007) (Command and Scripting Interpreter: JavaScript) | [T1557](https://attack.mitre.org/techniques/T1557) (Adversary-in-the-Middle) | The choice of exploitation method depends on whether the vulnerability is stored (T1189) or whether the victim must click on a malicious link (T1204.001).|
 | CWE-787: [Out-of-bounds Write](https://cwe.mitre.org/data/definitions/787.html) (child of [CWE-119](https://cwe.mitre.org/data/definitions/119.html)) | [T1574](https://attack.mitre.org/techniques/T1574) (Hijack Execution Flow) | [T1499.004](https://attack.mitre.org/techniques/T1499/004) (Endpoint Denial of Service: Application or System Exploitation)| see [Keyword-based Mapping](#keyword-based-mapping) | A buffer overflow vulnerability is an example of this type. |
 | CWE-125: [Out-of-bounds Read](https://cwe.mitre.org/data/definitions/125.html) | see [Standard Exploit Methods](#standard-exploit-methods) | [T1005](https://attack.mitre.org/techniques/T1005) (Data from Local System); [T1499.004](https://attack.mitre.org/techniques/T1499/004) (Endpoint Denial of Service: Application or System Exploitation) | [T1211](https://attack.mitre.org/techniques/T1211) (Exploitation for Defense Evasion), [T1212](https://attack.mitre.org/techniques/T1212) (Exploitation for Credential Access) | |
-
-**Table 1B. Common Vulnerability Types - Well-Known**
-
-| Associated CWE | Exploitation Method | Primary Impact | Secondary Impact | Notes |
-| ---- | ---- | ---- | ---- | ------- |
+| | | | | |
 | CWE-75 [Improper Access Control]() | see [Standard Exploit Methods](#standard-exploit-methods) | see [Keyword-based Mapping](#keyword-based-mapping) | see [Keyword-based Mapping](#keyword-based-mapping) | This weakness if very high level. The impacts of authentication, authorization, and permissions errors depend on the specific functionality missing the authentication, authorization or permission. |
 
 
