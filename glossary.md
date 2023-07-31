@@ -1,8 +1,10 @@
 # Glossary of Terms
 
+**XXX - PROOF OF CONCEPT - XXX**
+
 | Term | Definition |
 | ---- | ---- | 
-| Buffer Overflow| A buffer overflows occur when a developer does not sanitize or validate the user input before allocating space for it in the buffer. [[4]](#4) a buffer overflow is a type of memory error that happens when a program writes too much data to a buffer. [[3]|(#3)
+| Buffer Overflow| A buffer overflows occur when a developer does not sanitize or validate the user input before allocating space for it in the buffer. [[4]](#4) a buffer overflow is a type of memory error that happens when a program writes too much data to a buffer. [[3]]|(#3)
 |Cross-site Request Forgery (CSRF)| A Cross-site request forgery is a web security vulnerability that allows an attacker to make users to perform unintended actions.|
 |File inclusion| File inclusion is the ability to trick the web server into executing a rogue file, provided by the attacker, without checking its validity.|
 | Integer Overflow | An integer overflow occurs when a program attempts to perform an arithmetic operation that results in a value that is too large to be represented by the data type being used. |
