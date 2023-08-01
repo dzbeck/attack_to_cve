@@ -92,6 +92,7 @@ As shown in the previous section, some common vulnerability types can be exploit
 * A vulnerability's exploit method technique is not necessarily the same technique that exploits the user/machine. For example, consider the VID associated with the initial example where it is Network Sniffing (T1040) that exploits the vulnerability and Valid Accounts (T1078) that exploits the user/machine.
 * Some vulnerabilities require no explicit exploitation. For example, hardcoded credentials or default credentials make systems vulnerable without explicit exploitation (i.e., off-network discovery of the credentials is not considered exploitation).
 * Because the context surrounding vulnerabilities varies, the *exploit method* of one vulnerability may map to the same ATT&CK technique as an *impact* of another vulnerability. 
+* Exploitation methods can also be identified using keywords. Please see [Keyword-based Mapping](#keyword-based-mapping) for details.
 
 Exploit methods based on vulnerable object and entry point are given below. Example impacts (not the only option) are also listed to illustrate the difference between exploiting a vulnerability and compromising a user/machine.
 
@@ -112,7 +113,6 @@ Exploit methods based on vulnerable object and entry point are given below. Exam
 |os; firmware | user action:insert media | [T1091](https://attack.mitre.org/techniques/T1091) (Replication Through Removeable Media) | |
 |os |network | [T1574](https://attack.mitre.org/techniques/T1574) (Hijack Execution Flow) | |
  
-Exploitation methods can also be identified using keywords. Please see [Keyword-based Mapping](#keyword-based-mapping) for details.
 
 #### Example
 
@@ -190,7 +190,7 @@ Five ATT&CK tactics contain generic "exploitation" techniques, which can be used
 
 ## Methodology Notes
 
-In this section, we summarize the points made above.
+In this section, we summarize points made above.
 
 * Using ATT&CK should not require any more or less information than normally provided in a vulnerability record. Using ATT&CK enables you to *standardize* how you describe vulnerability information so that readers can leverage the resources built on top of ATT&CK.
 * The methodology focuses on Enterprise ATT&CK, but content from Mobile and ICS ATT&CK is included as needed. These techniques are identified with "Mobile-" and "ICS-" prefixes.
