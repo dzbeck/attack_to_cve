@@ -12,7 +12,7 @@ When developing this mapping methodology, we found that three steps of an associ
 2. **Primary Impact** - the initial benefit (impact) gained through exploitation of the vulnerability (T1552 in the example).
 3. **Secondary Impact** - what the adversary can do by gaining the benefit of the primary impact (T1078 in the example).
 
-Using these three components, a **Vulnerability Impact Description (VID)** can be developed (**XXX is it useful to have an acronyn??XXX**):
+Using these three components, a **Vulnerability Impact Description (VID)** can be developed (**XXX is it useful to define/use an acronyn??XXX**):
 
 > The vulnerability allows the attacker to use **[EXPLOITATION METHOD]** to gain **[Primary Impact]**, which leads to **[Secondary Impact]**.
 
@@ -25,14 +25,14 @@ Given a vulnerability, it may not be possible to identify an ATT&CK technique fo
 This methodology establishes a starting point for vulnerability reporters and researchers to standardize the way they describe vulnerability data. Generally, mapping vulnerabilities to ATT&CK techniques (identifying exploit method and impacts) involves one or more of the following activities:
 
 - **Consider Common Vulnerability Types** - vulnerabilities based on the same weakness (e.g., CWE-79: cross-site scripting) will often have the same ATT&CK mapping. The [Common Vulnerability Types](#common-vulnerability-types) section includes a list of common vulnerability types and their associated VIDs. 
-- **Identify Exploit Method** - Vulnerabilities of the same type can often be exploited in many different ways. However, vulnerability details can lead to identification of a specific exploit method. The [Exploit Methods](#exploit-methods) section includes a list of exploit methods based the type of vulnerable object and the attack entry point. 
+- **Identify Exploit Method** - Vulnerabilities of the same type can often be exploited in different ways. However, details of the vulnerability can lead to identification of a specific exploit method. The [Exploit Methods](#exploit-methods) section includes a list of mappings based the type of vulnerable object and the attack entry point. 
 - **Identify Techniques Using Keywords** - While many vulnerabilities can be mapped to ATT&CK using the common vulnerability types table, many more vulnerabilities require a custom mapping. In these cases, keywords in the vulnerability's description can be used to identify the ATT&CK techniques associated with its exploit method and impact components. Details are given in the [Keyword-based Mapping](#keyword-based-mapping) section.
 
 Example mappings, [Methodology Notes](#methodology-notes) and [References](#references) are included below. 
 
 ### Common Vulnerability Types
 
-Vulnerabilities of the same type will often have the same or similar technique mappings. **Table 1** lists the most common vulnerability types based on CWE, which are taken from [[1]](#1) (see the *Top 25 most dangerous CWE codes as reflected in CVEs 2018-2022* graphic), as well as the best known types in [CWE-699 (Software Development)](https://cwe.mitre.org/data/definitions/699.html) and [CWE-1000 (Research Concepts)](https://cwe.mitre.org/data/definitions/1000.html). 
+Vulnerabilities of the same type will often have the same or similar technique mappings. **Table 1** lists the most common vulnerability types based on CWE, which are taken from [[1]](#1) (see the *Top 25 most dangerous CWE codes as reflected in CVEs 2018-2022* graphic), as well as the best known types in the [CWE-699 (Software Development)](https://cwe.mitre.org/data/definitions/699.html) and [CWE-1000 (Research Concepts)](https://cwe.mitre.org/data/definitions/1000.html) views. 
 
 To map a vulnerability using **Table 1**, identify the CWE associated with the vulnerability and review the corresponding row to determine whether the mapping applies. If options are listed for a component, read the notes in the table and the technique descriptions on the ATT&CK website to select the most appropriate. In some cases, the reader will be directed to identify the exploit method using the [Exploit Methods](#exploit-methods) section and impacts using the [Keyword-based Mapping](#keyword-based-mapping) section.
 
@@ -52,8 +52,10 @@ If a vulnerability is not explicitly associated with a CWE, or if its associated
 | CWE-918: [Server-Side Request Forgery (SSRF)](https://cwe.mitre.org/data/definitions/918.html) | [T1133](https://attack.mitre.org/techniques/T1133) (External Remote Service) | [T1090](https://attack.mitre.org/techniques/T1090) (Proxy) | [T1135](https://attack.mitre.org/techniques/T1135) (Network Discovery); [T1005](https://attack.mitre.org/techniques/T1005) (Data from Local System) |  |
 | CWE-798: [Use of Hard-coded Credentials](https://cwe.mitre.org/data/definitions/798.html) | N/A | [T1078.001](https://attack.mitre.org/techniques/T1078/001) (Default Accounts) | N/A | |
 | CWE-434: [Unrestricted File Upload](https://cwe.mitre.org/data/definitions/434.html) | N/A | [T1505.003](https://attack.mitre.org/techniques/T1505/003) (Server Software Component: Web Shell); [T1505.004](https://attack.mitre.org/techniques/T1505/004) (Server Software Component: IIS Components); [T1505.005](https://attack.mitre.org/techniques/T1505/005) (Server Software Component: Terminal Services DLL) | [T1059](https://attack.mitre.org/techniques/T1059)(Command and Scripting Interpreter) | |
+| CWE-78: [OS Command Injection](https://cwe.mitre.org/data/definitions/78.html) | [T1133](https://attack.mitre.org/techniques/T1133) (External Remote Service) | [T1059](https://attack.mitre.org/techniques/T1059) (Command and Scripting Interpreter) | see [Keyword-based Mapping](#keyword-based-mapping) | The primary impact depends on the OS attacked, but is often T1059.004.  |
+| CWE-400: [Uncontrolled Resource Consumption](https://cwe.mitre.org/data/definitions/400.html) | see [Exploit Methods](#exploit-methods) | [T1499](https://attack.mitre.org/techniques/T1499) (Endpoint Denial of Service)(1) | N/A | (1) A sub-technique may be chosen depending on the resource consumed. |
 | | | | | |
-| CWE-75 [Improper Access Control](https://cwe.mitre.org/data/definitions/75.html) | see [Exploit Methods](#exploit-methods) | see [Keyword-based Mapping](#keyword-based-mapping) | see [Keyword-based Mapping](#keyword-based-mapping) | The exploitation and impacts of authentication, authorization, and permissions errors depend on the specific object with improper access control. |
+| CWE-75: [Improper Access Control](https://cwe.mitre.org/data/definitions/75.html) | see [Exploit Methods](#exploit-methods) | see [Keyword-based Mapping](#keyword-based-mapping) | see [Keyword-based Mapping](#keyword-based-mapping) | The exploitation and impacts of authentication, authorization, and permissions errors depend on the specific object with improper access control. |
 
 
 #### Examples
