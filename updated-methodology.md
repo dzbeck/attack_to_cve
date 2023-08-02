@@ -39,7 +39,7 @@ To map a vulnerability using **Table 1**, identify the CWE associated with the v
 If a vulnerability is not explicitly associated with a CWE, or if its associated CWE is not listed in Table 1, it should be mapped using keywords (see [Objective-based Mapping](#objective-based-mapping)). Objective-based mapping should also be used in the cases where vulnerability details suggest other or additional ATT&CK techniques may apply. Exploit methods and secondary impacts unlikely to be identified are marked "N/A."
 
 
-**Table 1. Common Vulnerability Types** XXX Currently in the process of adding updated mappings to table... is a CWE "pillar" an outdate term? The CWE Top 25 info (cwe.mitre.org/top25/index.html says that in the coming months there will be an "Actively Exploited" list (ranking of weaknesses by CISA's KEV Catelog) - will want to make sure to cover things on that list... XXX
+**Table 1. Common Vulnerability Types** XXX Currently in the process of adding updated mappings to table... The CWE Top 25 info (cwe.mitre.org/top25/index.html) says that in the coming months there will be an "Actively Exploited" list (ranking of weaknesses by CISA's KEV Catelog) - will want to make sure to cover things on that list... XXX
 
 | Associated CWE | Exploitation Method | Primary Impact | Secondary Impact | Notes |
 | ---- | ---- | ---- | ---- | ------- |
