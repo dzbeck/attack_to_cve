@@ -12,7 +12,7 @@ When developing this mapping methodology, we found that three steps of an associ
 2. **Primary Impact** - the initial benefit (impact) gained through exploitation of the vulnerability (T1552 in the example).
 3. **Secondary Impact** - what the adversary can do by gaining the benefit of the primary impact (T1078 in the example).
 
-Using these three components, a **Vulnerability Exploit-Impact Description (VEID)** can be developed (**XXX is it useful to define/use an acronyn??XXX**):
+Using these three components, a **Vulnerability Exploit-Impact Description (VEID)** can be developed (**XXX is an acronym useful??XXX**):
 
 > The vulnerability allows the attacker to use **[EXPLOITATION METHOD]** to gain **[Primary Impact]**, which leads to **[Secondary Impact]**.
 
@@ -26,7 +26,7 @@ This methodology establishes a starting point for vulnerability reporters and re
 
 - **Consider Common Vulnerability Types** - vulnerabilities based on the same weakness (e.g., CWE-79: cross-site scripting) will often have the same ATT&CK mapping. The [Common Vulnerability Types](#common-vulnerability-types) section includes a list of common vulnerability types and their associated VEIDs. 
 - **Identify Exploit Method** - Vulnerabilities of the same type can often be exploited in different ways. However, details of the vulnerability can lead to identification of a specific exploit method. The [Exploit Methods](#exploit-methods) section includes a list of mappings based the type of vulnerable object and the attack entry point. 
-- **Identify Techniques Using Objective Keywords** - While many vulnerabilities can be mapped to ATT&CK using the common vulnerability types table, many more vulnerabilities require a custom mapping. In these cases, keywords in the vulnerability's description relating to adversary objectives can be used to identify the ATT&CK techniques associated with its exploit method and impact components. Details are given in the [Objective-based Mapping](#objective-based-mapping) section.
+- **Consider Vulnerability Objectives** - While many vulnerabilities can be mapped to ATT&CK using the common vulnerability types table, many more vulnerabilities require a custom mapping. In these cases, keywords in the vulnerability's description relating to adversary objectives can be used to identify the ATT&CK techniques associated with its exploit method and impact components. Details are given in the [Objective-based Mapping](#objective-based-mapping) section.
 
 Example mappings, [Methodology Notes](#methodology-notes) and [References](#references) are included below. 
 
