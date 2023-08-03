@@ -122,8 +122,8 @@ Exploit methods based on vulnerable object type are given below. Descriptions ar
 | ---- | ---- | ---- |
 |Internet-facing Host/System (webserver, website, database, service)| [T1190](https://attack.mitre.org/techniques/T1190) (Exploit Public-Facing Application); [T1211](https://attack.mitre.org/techniques/T1211) (Exploitation for Defense Evasion) | "Adversaries may attempt to exploit a weakness in an Internet-facing host or system... The weakness in a system can be a software bug, temporary glitch, or a misconfiguration... Depending on the flaw being exploited this may also involved Exploitation for Defense Evasion." |
 |Client Application (browser, office app) | [T1203](https://attack.mitre.org/techniques/T1203) (Exploitation for Client Execution) | "Adversaries may exploit software vulnerabilities in client applications to execute code."|
-|  | [T1189](https://attack.mitre.org/techniques/T1189) (Drive-by Compromise) | "Web browsers are a common target through drive-by compromise." |
-|  | [T1204.001](https://attack.mitre.org/techniques/T1204/001) (User Execution: Malicious Link) | "Clicking on a link may also lead to other execution techniques such as exploitation of a browser or application vulnerability via Exploitation for Client Execution."
+| --> | [T1189](https://attack.mitre.org/techniques/T1189) (Drive-by Compromise) | "Web browsers are a common target through drive-by compromise." |
+| --> | [T1204.001](https://attack.mitre.org/techniques/T1204/001) (User Execution: Malicious Link) | "Clicking on a link may also lead to other execution techniques such as exploitation of a browser or application vulnerability via Exploitation for Client Execution."
 | OS; Firmware | [T1091](https://attack.mitre.org/techniques/T1091) (Replication Through Removeable Media) | "System Requirement:... vulnerability present that allows for code execution." |
 | *others to be added after approach decided..* |  |  |
 
