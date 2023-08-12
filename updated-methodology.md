@@ -12,7 +12,7 @@ When developing this mapping methodology, we found that three steps of an associ
 2. **Primary Impact** - the initial benefit (impact) gained through exploitation of the vulnerability (T1552 in the example).
 3. **Secondary Impact** - what the adversary can do by gaining the benefit of the primary impact (T1078 in the example).
 
-Using these three components, a **Vulnerability Exploit-Impact Description (VEID)** can be developed (**XXX is an acronym useful??XXX**):
+Using these three components, a **Vulnerability Exploit-Impact Description (VEID)** can be developed:
 
 > The vulnerability allows the attacker to use **[EXPLOITATION METHOD]** to gain **[Primary Impact]**, which leads to **[Secondary Impact]**.
 
@@ -22,11 +22,11 @@ Given a vulnerability, it may not be possible to identify an ATT&CK technique fo
 
 ##	Mapping Methodology
 
-This methodology establishes a starting point for vulnerability reporters and researchers to standardize the way they describe vulnerability data. Generally, mapping vulnerabilities to ATT&CK techniques (identifying exploit method and impacts) requires consideration of one or more of the following approaches:
+This methodology establishes a starting point for vulnerability reporters and researchers to standardize the way they describe vulnerability data. Generally, mapping vulnerabilities to ATT&CK techniques (identifying exploit method and impacts) requires consideration of one or more of the following:
 
 - **Common Vulnerability Types** - vulnerabilities based on the same weakness (e.g., CWE-79: cross-site scripting) will often have the same ATT&CK mapping. The [Common Vulnerability Types](#common-vulnerability-types) section includes a list of common vulnerability types and their associated VEIDs.
-- **Affected Object Types** - Vulnerabilities of the same type can often be exploited in a variety of ways. However, details of the vulnerability can lead to identification of a specific exploit method. The [Affected Object Types](#affected-object-types) section includes a list of exploit method mappings based on the type of object (software, hardware, firmware, product, application, or code) that has the vulnerability. 
-- **Vulnerability Objectives** - While many vulnerabilities can be mapped to ATT&CK using the common vulnerability types table, many more vulnerabilities require a custom mapping. In these cases, keywords in the vulnerability's description relating to adversary objectives can be used to identify the ATT&CK techniques associated with its exploit method and impact components. Details are given in the [Vulnerability Objectives](#vulnerability-objectives) section.
+- **Affected Object Types** - Vulnerabilities with the same underlying weakness can often be exploited in a variety of ways. However, details of the vulnerability can lead to identification of a specific exploit method. The [Affected Object Types](#affected-object-types) section includes a list of exploit method mappings based on the type of object (software, hardware, firmware, product, application, or code) that has the vulnerability. 
+- **Vulnerability Objectives** - While many vulnerabilities can be mapped to ATT&CK by considering common vulnerability types, many more vulnerabilities require a custom mapping. In these cases, keywords in the vulnerability's description relating to adversary objectives can be used to identify the ATT&CK techniques associated with its exploit method and impact components. Details are given in the [Vulnerability Objectives](#vulnerability-objectives) section.
 
 Example mappings, [Methodology Notes](#methodology-notes) and [References](#references) are included below. 
 
@@ -39,7 +39,7 @@ To map a vulnerability using **Table 1**, identify the CWE associated with the v
 If a vulnerability is not explicitly associated with a CWE, or if its associated CWE is not listed in Table 1, it should be mapped using keywords from the vulnerability description (see [Vulnerability Objectives](#vulnerability-objectives)). Objective-based mapping should also be used in the cases where vulnerability details suggest other or additional ATT&CK techniques may apply. Exploit methods and secondary impacts unlikely to be identified are marked "N/A."
 
 
-**Table 1. Common Vulnerability Types** XXX Currently in the process of adding updated mappings to table... The CWE Top 25 info (cwe.mitre.org/top25/index.html) says that in the coming months there will be an "Actively Exploited" list (ranking of weaknesses by CISA's KEV Catelog) - will want to make sure to cover things on that list...XXX
+**Table 1. Common Vulnerability Types** *XXX Still adding updated mappings to table... The CWE Top 25 info (cwe.mitre.org/top25/index.html) says that in the coming months there will be an "Actively Exploited" list (ranking of weaknesses by CISA's KEV Catalog) - will want to cover that list... XXX*
 
 | Associated CWE | Exploitation Method | Primary Impact | Secondary Impact | Notes |
 | ---- | ---- | ---- | ---- | ------- |
@@ -78,7 +78,7 @@ If a vulnerability is not explicitly associated with a CWE, or if its associated
 
 #### Examples
 
-The examples below illustrate how common vulnerability types can be used to define VEIDs. XXX would it be useful to include the CVSS score for the example CVEs? XXX
+The examples below illustrate how common vulnerability types can be used to define VEIDs. *XXX Would it be useful to include the CVSS score for the example CVEs? XXX*
 
 [CVE-2020-6960](https://nvd.nist.gov/vuln/detail/CVE-2020-6960) 
 
@@ -106,38 +106,31 @@ CVE-2020-5210 is a buffer overflow (**CWE-787**). Buffer overflows modify memory
 
 ### Affected Object Types
 
-As shown in the previous section, some common vulnerability types can be exploited in many different ways. In this section, we show how an exploit method can be mapped to an ATT&CK technique based on the type of the object that is affected -- software, hardware, firmware, product, application, or code -- what CVE refers to as “affected code bases.” Note the following:
+As shown in the previous section, some common vulnerability types can be exploited in a variety of ways. In this section, we show how an exploit method can be mapped to an ATT&CK technique based on the type of the object that is affected - software, hardware, firmware, product, application, or code - what CVE refers to as “affected code bases.” Note the following:
 
-- A vulnerability's exploit method technique is not necessarily the same technique that exploits the user/machine. For example, consider the VEID associated with the initial example where it is Network Sniffing (T1040) that exploits the vulnerability and Valid Accounts (T1078) that exploits the user/machine.
-- Some vulnerabilities require no explicit exploitation. For example, hardcoded credentials or default credentials make systems vulnerable without explicit exploitation (i.e., off-network discovery of the credentials is not considered an exploitation method).
+- A vulnerability's exploit method technique is not necessarily the same technique that exploits the user/machine. For example, consider the VEID associated with the initial example where it is *Network Sniffing (T1040)* that exploits the vulnerability and *Valid Accounts (T1078)* that exploits the user/machine.
+- Some vulnerabilities require no explicit exploitation. For example, hardcoded credentials or default credentials make systems vulnerable without explicit exploitation (off-network discovery of the credentials is not considered an exploitation method).
 - Because the context surrounding vulnerabilities varies, the *exploit method* of one vulnerability may map to the same ATT&CK technique as an *impact* of another vulnerability. 
-- User actions that do not involve a vulnerability are outside the scope of the methodology (e.g., [T1204.002](https://attack.mitre.org/techniques/T1204/002) (User Execution: Malicious File) is only applicable if the file (malware) exploits a vulnerable object).
+- User actions that do not involve a vulnerability are outside the scope of the methodology. For example, [T1204.002](https://attack.mitre.org/techniques/T1204/002) (User Execution: Malicious File) is only applicable when the file (malware) exploits a vulnerable object.
 - Exploitation methods can also be identified using keywords from the vulnerability description. Please see [Vulnerability Objectives](#vulnerability-objectives) for details.
 
-Exploit methods based on affected object type are given below. Example impacts (not the only option) are also given to illustrate the difference between exploiting a vulnerability and compromising a user/machine. Notes are based on ATT&CK v13.1 technique descriptions, as well as other sources. 
+Exploit methods based on affected object type are given below. Example impacts (not the only option) are also given to illustrate the difference between exploiting a vulnerability and compromising a user/machine. Unless another source is cited, notes are based on ATT&CK technique descriptions. 
 
-**Table 2. Exploit Methods Based on Affected Object Type** 
+**Table 2. Exploit Method Based on Affected Object Type** 
 
 | Affected Object | Exploit Method | Example Impact | Notes |
 | ---- | ---- | ---- | ---- |
-|Internet-facing Host/System (e.g., webserver, website, database, service)| [T1190](https://attack.mitre.org/techniques/T1190) (Exploit Public-Facing Application); [T1211](https://attack.mitre.org/techniques/T1211) (Exploitation for Defense Evasion) |  | "Adversaries may attempt to exploit a weakness in an Internet-facing host or system... The weakness in a system can be a software bug, temporary glitch, or a misconfiguration... Depending on the flaw being exploited this may also involved Exploitation for Defense Evasion." |
-|Client Application (e.g., browser, office app) | [T1203](https://attack.mitre.org/techniques/T1203) (Exploitation for Client Execution) | [T1574](https://attack.mitre.org/techniques/T1574) (Hijack Execution Flow) | "Adversaries may exploit software vulnerabilities in client applications to execute code."|
-| Browser | [T1189](https://attack.mitre.org/techniques/T1189) (Drive-by Compromise) |  | "Web browsers are a common target through drive-by compromise." |
-| Client Application | [T1204.001](https://attack.mitre.org/techniques/T1204/001) (User Execution: Malicious Link) |  | "Clicking on a link may also lead to other execution techniques such as exploitation of a browser or application vulnerability via Exploitation for Client Execution." |
-| Network-based Application | [T1140](https://attack.mitre.org/techniques/T1140) (Network Sniffing); [T1059](https://attack.mitre.org/techniques/T1059) (Command and Scripting Interpreter) | [T1574](https://attack.mitre.org/techniques/T1574) (Hijack Execution Flow)|  |
-| OS; Firmware | [T1091](https://attack.mitre.org/techniques/T1091) (Replication Through Removeable Media) |  | "System Requirement:... vulnerability present that allows for code execution." |
-| OS | [T1574](https://attack.mitre.org/techniques/T1574) (Hijack Execution Flow) | | |
-| application | [T1204.002](https://attack.mitre.org/techniques/T1204/002) (User Execution: Malicious File) |  | Malware may be written to compromise a vulnerable object. For example, The US Cybersecurity and Infrastructure Security Agency (CISA) published a trio of malware analysis reports about malware variants that exploit a remote command injection vulnerability in the Barracuda Email Security Gateway (ESG) Appliance. [SANS NewsBites Vol. 25 Num. 060]()
-| *others to be added after approach decided..* |  |  |
-| External Remote Service (vpn, service, software) | [T1133](https://attack.mitre.org/techniques/T1133) (External Remote Service) | | |
-| Internal Remote Service (smb, netlogon, print spooler) | [T1210](https://attack.mitre.org/techniques/T1210) (Exploitation of Remote Services) |  |  |
-| Endpoint Security Solution (e.g., AV software, mail server filtering)| [T1204.002](https://attack.mitre.org/techniques/T1204/002) (User Execution: Malicious File); [T1204.001](https://attack.mitre.org/techniques/T1204/001) (User Execution: Malicious Link); T1566.001 (Phishing: Spearphishing Attachment) | | Examples of this include mail servers with faulty filtering.
-
-**OLD CONTENT**
-
-|endpoint security solution; mail server| user action:click link (email/non-enterprise service)|T1204.001 (User Execution: Malicious Link) | |
-|endpoint security solution| user action:click link (non-enterprise service)| [T1566.003](https://attack.mitre.org/techniques/T1566/003) (Phishing: Spearphishing via Service) | |
-|endpoint security solution; mail server | user action:execute file | T1566.001 (Phishing: Spearphishing Attachment) | |
+|**Internet-facing Host/System** (e.g., webserver, website, database, service)| [T1190](https://attack.mitre.org/techniques/T1190) (Exploit Public-Facing Application); [T1211](https://attack.mitre.org/techniques/T1211) (Exploitation for Defense Evasion) |  | Adversaries may attempt to exploit a weakness in an Internet-facing host or system, which may be a software bug, temporary glitch, or misconfiguration. Depending on the flaw being exploited, this may also involved the [Exploitation for Defense Evasion](https://attack.mitre.org/techniques/T1211). |
+|**Client Application (1)** (e.g., browser, office app) | [T1203](https://attack.mitre.org/techniques/T1203) (Exploitation for Client Execution) | [T1574](https://attack.mitre.org/techniques/T1574) (Hijack Execution Flow) | Adversaries may exploit software vulnerabilities in client applications to execute code.|
+| **Client Application (2)** | [T1204.001](https://attack.mitre.org/techniques/T1204/001) (User Execution: Malicious Link) |  | A user clicking on a link may lead to other execution techniques such as exploitation of a browser or application vulnerability via Exploitation for Client Execution.|
+| **Client Application (3)** | [T1204.002](https://attack.mitre.org/techniques/T1204/002) (User Execution: Malicious File) |  | Malware may be written to compromise a vulnerable object. For example, The US Cybersecurity and Infrastructure Security Agency (CISA) published a trio of malware analysis reports about malware variants that exploit a remote command injection vulnerability in the Barracuda Email Security Gateway (ESG) Appliance. [SANS NewsBites Vol. 25 Num. 060]()
+| **Client Application: Browser** | [T1189](https://attack.mitre.org/techniques/T1189) (Drive-by Compromise) |  | Vulnerable web browsers are targeted in drive-by compromises. |
+| **Network-based Application** | [T1140](https://attack.mitre.org/techniques/T1140) (Network Sniffing); [T1059](https://attack.mitre.org/techniques/T1059) (Command and Scripting Interpreter) | [T1574](https://attack.mitre.org/techniques/T1574) (Hijack Execution Flow)|  |
+| **OS; Firmware** | [T1091](https://attack.mitre.org/techniques/T1091) (Replication Through Removeable Media) |  | "System Requirement:... vulnerability present that allows for code execution." |
+| **OS** | [T1574](https://attack.mitre.org/techniques/T1574) (Hijack Execution Flow) | | |
+| **External Remote Service** (e.g., vpn, service, software) | [T1133](https://attack.mitre.org/techniques/T1133) (External Remote Service) | | |
+| **Internal Remote Service** (e.g,. smb, netlogon, print spooler) | [T1210](https://attack.mitre.org/techniques/T1210) (Exploitation of Remote Services) |  |  |
+| **Endpoint Security Solution** (e.g., AV software)| [T1204.002](https://attack.mitre.org/techniques/T1204/002) (User Execution: Malicious File); [T1204.001](https://attack.mitre.org/techniques/T1204/001) (User Execution: Malicious Link); [T1566.001](https://attack.mitre.org/techniques/T1566/001) (Phishing: Spearphishing Attachment) | | Vulnerable endpoint security solutions may allow users to execute malware or click on a malicious link (either from email or a non-enterprise service) that downloads malware to their machine. |
  
 #### Example
 
@@ -170,7 +163,7 @@ As the VEID for CVE-2020-5210 shows (see example above), a vulnerability that is
 
 Cases where numerous secondary impacts are possible are marked "*many*" and cases where a secondary impact is unlikely are marked "N/A." The techniques given are those most likely to apply to vulnerabilities but in general, the entries are not exhaustive (especially for secondary impacts). Note that keywords taken from a description can also be used to identify appropriate mappings for exploit methods (exploit methods are not included in Table 3 because they are context-dependent, relative to impacts; see [Common Vulnerability Types](#common-vulnerability-types) for VEIDs that contain all three components).
 
-**Table 3. Mappings for Common Objectives**
+**Table 3. Impact Mappings for Common Objectives**
 
 | Adversary Objective | Primary Impact | Secondary Impact |
 | ---- | ---- | ------ |
@@ -223,7 +216,7 @@ In this section, we summarize points made above. (*need to add all after draft c
 
 ## Examples - Using All Three Approaches
 
-*XXX would it be useful to have a few examples that use one or more approaches? There is one example in the "Affected Object Type" section, but more might be helpful. e.g., using only objectives and searches, using all three approaches, etc.XXX*
+*XXX would it be useful to have a few examples that use one or more approaches? There is one example in the "Affected Object Type" section, but more might be helpful. e.g., using only objectives and searches, using all three approaches, etc. XXX*
 
 ## References
 
