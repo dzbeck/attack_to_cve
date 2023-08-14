@@ -37,10 +37,10 @@ Vulnerabilities of the same type will often have the same or similar technique m
 To map a vulnerability using its CWE information:
 
 1. Identify the CWE associated with the vulnerability and **review the corresponding row of Table 1** to determine whether the given mapping applies. If options are listed for a component, read the notes in the table and the technique descriptions on the ATT&CK website to select the most appropriate. In some cases, the reader will be directed to identify the exploit method using the [Affected Object Types](#affected-object-types) section and impacts using the [Vulnerability Objectives](#vulnerability-objectives) section.
-2. If the CWE is not listed in Table 1, or if a mapping in Table 1 is not appropriate, **refer to the CWE definition** ([[5]](#5) ID Lookup) for pointers to applicable ATT&CK mappings. Specifically, the CWE "Common Consequences" section can suggest likely impacts. For example, the common consequences given for CWE-190: Integer Overflow are "DOS," "Modify Memory," and "Execute Unauthorized Code." While the "Modify Memory" consequence is directly associated with exploiting the overflow, "DOS" and "Execute Unauthorized Code" suggested the impact mappings T1499 and T1574 that are given in Table 1.
+2. If the CWE is not listed in Table 1, or if the mapping in Table 1 is not appropriate, **refer to the CWE definition** ([[5]](#5) ID Lookup) for pointers to applicable ATT&CK mappings. Specifically, the CWE "Common Consequences" section can suggest likely impacts. For example, the common consequences given for CWE-190: Integer Overflow are "DOS," "Modify Memory," and "Execute Unauthorized Code." While the "Modify Memory" consequence is directly associated with exploiting the overflow, "DOS" and "Execute Unauthorized Code" suggest the impact mappings T1499 and T1574 that are given in Table 1.
 3. If a vulnerability is not explicitly associated with a CWE, or if its associated CWE information does not provide a complete mapping, **map the vulnerability using keywords** from the vulnerability description (see [Vulnerability Objectives](#vulnerability-objectives)). Objective-based mapping should also be used when the vulnerability's details suggest that additional ATT&CK techniques apply. 
 
-**Table 1. Common Vulnerability Types** *XXX Still adding updated mappings to table... The CWE Top 25 info (cwe.mitre.org/top25/index.html) says that in the coming months there will be an "Actively Exploited" list (ranking of weaknesses by CISA's KEV Catalog) - will want to cover that list... XXX*
+**Table 1. Common Vulnerability Types** *XXX Still adding mappings to table... The CWE Top 25 info (cwe.mitre.org/top25/index.html) says that in the coming months there will be an "Actively Exploited" list (ranking of weaknesses by CISA's KEV Catalog) - will want to cover that list... XXX*
 
 | Associated CWE | Exploitation Method | Primary Impact | Secondary Impact | Notes |
 | ---- | ---- | ---- | ---- | ------- |
@@ -151,8 +151,6 @@ Note that the description of CVE-2018-17900 could be now re-written using the AT
 
 ### Vulnerability Objectives
 
-*XXX does this title encompass exploit method mappings? Maybe make two tables - one for objectives (already below) and one for common exploit methods. Or should searches be included in Section 2? or should Section 2 be re-written as Mappings for Common Affected Objects with searching being how you get there... same format as this section. Could make a stand alone section for how to search. "Search Tips" and then the other two sections. or they could be sub-sections of search. XXX*
-
 A vulnerability description, which describes or implies the potential *objectives* of an attacker, can provide input for identifying ATT&CK techniques and sub-techniques appropriate to a VEID. Someone who knows ATT&CK well may only need to confirm the appropriateness of their mapping choice. Others can identify appropriate techniques via search on the associated keywords:
 
 - **ATT&CK Search** - ATT&CK's search capability can find exact text sequences. The [ATT&CK Powered Suit](https://mitre-engenuity.org/cybersecurity/center-for-threat-informed-defense/attack-powered-suit/) browser extension enables quick searches for ATT&CK content without disrupting workflow.
@@ -218,7 +216,7 @@ In this section, we summarize points made above. (*need to add all after draft c
 
 ## Examples - Using All Three Approaches
 
-*XXX would it be useful to have a few examples that use one or more approaches? There is one example in the "Affected Object Type" section, but more might be helpful. e.g., using only objectives and searches, using all three approaches, etc. XXX*
+*XXX would it be useful to have a few examples that use one or more approaches? There is one example in the "Affected Object Types" section, but more might be helpful. e.g., using only objectives and searches, using all three approaches, etc. XXX*
 
 ## References
 
